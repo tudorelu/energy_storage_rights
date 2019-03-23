@@ -69,4 +69,4 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 
 ## Link to our other resources
 Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs
-
+Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
