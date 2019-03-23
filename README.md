@@ -19,14 +19,18 @@ We strike to built up an application which used to evaluate and optimize the per
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
 
 ## Objectives
-Objective 1: Understand the project<br />
-Objective 2: familiar with programming develop language and environment.<br />
-Objective 3: Identify data source and collect data from variable source.<br />
-Objective 4: Deliver a MVP. <br/>
+Objective 1: Understand the project and make the assumption
+Objective 2: familiar with programming develop language and environment.
+Objective 3: Identify data source and collect data from a variable source.
+Objective 4: Create a Todo App (This is a requirement from client that does not relate to this project.
+Objective 5: Deliver an MVP which includes deliverables <br/>
 To be added, refer to gantt chart.
 
 
 ## Desired Features
+###  Two primary functions
+For our web application, we are planned to have two function to allow the users to identify the suitable area for renewable energy technologies development. 
+For our first function, we need to calculate the return of investment by develop various kind of renewable technologies for the area selected by users. Then, we could use a similar algorithm to identify the top N locations that is suitable for development in a relative large area. To rank different locations, we will continue to use the return of investment as the parameter.
 
 ### Smart choices by system
 Nearest energy grid<br />
@@ -68,5 +72,5 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Peilin Song	|Front-end developer,web developer	|Responsible for web-development. Doing the research on ReactJs.|
 
 ## Link to our other resources
-Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs
+Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs <br/>
 Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
