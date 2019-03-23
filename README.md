@@ -27,6 +27,7 @@ To be added, refer to gantt chart.
 
 
 ## Desired Features
+
 ### Smart choices by system
 Nearest energy grid<br />
 Suitable locations for different technologies<br />
