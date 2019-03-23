@@ -3,11 +3,11 @@ Table of Contents
   * [Introduction](#Introduction)
   * [Vision](#Vision)
   * [Objectives](#Objectives)
-  * [Desired Features](#Desired Features)
+  * [Desired Features](#Desired_Features)
   * [Milestones](#Milestones)
-  * [The potential of the project](#The potential of the project)
+  * [The potential of the project](#The_potential_of_the_project)
   * [Acknowledgement](#Acknowledgement)
-  * [Work allocation](#work allocation)
+  * [Work allocation](#work_allocation)
 
 
 ## Introduction
