@@ -1,3 +1,5 @@
+## *This is a seperate application that required by our client. It is not related to our project.
+
 # Technical Report
 There are some reasons to use React which is a javascript library to help create interactive UIs.
 The first and foremost, it is easy to separate the whole app into different components. 
