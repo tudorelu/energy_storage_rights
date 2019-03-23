@@ -1,0 +1,20 @@
+.todoWrapper{
+    border-bottom: 1px solid #efefef;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.btn{
+    outline: none;
+    box-shadow: none;
+    border-width: 2px;
+    border-radius: 3px;
+    border-style: solid;
+    padding: 8px;
+}
+
+.btn-primary{
+    color: rgb(249, 73, 73);
+    border-color: aqua;
+    background-color: transparent;
+}
