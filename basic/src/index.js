@@ -2,6 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 
+//bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Button } from 'reactstrap';
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
 class Application extends React.Component {
@@ -41,11 +46,15 @@ class Application extends React.Component {
 
     return (
       <div>
+        <div>
+        <Button color="danger">Danger!</Button>
+        </div>
         <div className="inline-block absolute top left mt12 ml12 bg-darken75 color-white z1 py6 px12 round-full txt-s txt-bold">
           <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
         </div>
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" style={{width: 50, height: 50}}/>
       </div>
+
     );
   }
 }
