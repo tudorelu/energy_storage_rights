@@ -41,10 +41,16 @@ class Application extends React.Component {
 
     return (
       <div>
+        <div>
+          <h1>dosomething</h1> 
+        </div> 
+
         <div className="inline-block absolute top left mt12 ml12 bg-darken75 color-white z1 py6 px12 round-full txt-s txt-bold">
           <div>{`Longitude: ${lng} Latitude: ${lat} Zoom: ${zoom}`}</div>
         </div>
+
         <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+
       </div>
     );
   }

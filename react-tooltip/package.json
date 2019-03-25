@@ -10,7 +10,7 @@
   "dependencies": {
     "mapbox-gl": "^0.39.1",
     "prop-types": "^15.5.10",
-    "react": "^15.5.0",
-    "react-dom": "^15.5.0"
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
   }
 }
