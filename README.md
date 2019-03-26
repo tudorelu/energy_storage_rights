@@ -47,12 +47,7 @@ Return of investment<br />
 Shown data usage<br />
 
 ## Milestones
-1. Sample Data Research - Week 2
-2. Setting up environment - Week 2
-3. Sample Data Normalization - Week 3
-4. Basic Algorithm Brainstroming - Week 3
-5. Basic UI setup - Week 4 <br/>
-to be added
+See the file Gantt_project_planner.xlsx above
 
 ## The potential of the project
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allow to generate more interaction between the property owner and renewable energy developer. Land owner can be benefit from this application by making more effective and smart decision on the use of renewable energy product, it also help them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to delop their products. This application is expected to create a win-win situation between each parties.
