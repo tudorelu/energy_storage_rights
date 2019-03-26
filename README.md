@@ -19,12 +19,7 @@ We strike to built up an application which used to evaluate and optimize the per
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
 
 ## Objectives
-Objective 1: Understand the project and make the assumption
-Objective 2: familiar with programming develop language and environment.
-Objective 3: Identify data source and collect data from a variable source.
-Objective 4: Create a Todo App (This is a requirement from client that does not relate to this project.
-Objective 5: Deliver an MVP which includes deliverables <br/>
-To be added, refer to gantt chart.
+Refer to Objectives.xlsx
 
 
 ## Desired Features
