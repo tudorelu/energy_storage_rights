@@ -46,10 +46,7 @@ class Application extends React.Component {
 
     return (
       <div>
-        <div>
-          <h1>ENERGY STORAGE</h1> 
-        </div> 
-
+  
         
         {/* <div>
         <Button color="danger">Danger!</Button>
@@ -64,4 +61,4 @@ class Application extends React.Component {
   }
 }
 
-ReactDOM.render(<Application />, document.getElementById('app'));
+// ReactDOM.render(<Application />, document.getElementById('app'));
