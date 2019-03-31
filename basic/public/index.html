@@ -8,13 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
   
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
 
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+
+  
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
 </head>
 <body>
@@ -41,12 +43,12 @@
   
   
   <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoicnVzc2VsbHllIiwiYSI6ImNqdGZvNzc1ZDAxdWk0M3M3aGdiaGphdzkifQ.TBCaxN0nNg4MQBMbBxDYNg';
-  var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v9',
-      center: [-79.4512, 43.6568],
-      zoom: 13
+  mapboxgl.accessToken = 'pk.eyJ1IjoidTYzMDI2MDIiLCJhIjoiY2p0Zm9tNGlrMDF5ejN5czc0aHN1emk1YiJ9.WlMRvtRSUqo71f6s9vVm2A';
+  const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/u6302602/cjtv0c1ub0ig71fogxg1q2q61',
+  center: [-94.596296, 27.709177],
+  zoom: 1.9
   });
    
   map.addControl(new MapboxGeocoder({
