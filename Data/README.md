@@ -58,6 +58,5 @@ provided by Australian National Committee on Large Dams Incorporated (ANCOLD)
 Australia. (https://www.ancold.org.au/?page_id=4640 )
 
 
-### 6. [Normalized ACT insolation data](/normalized_data_for_canberra.csv)
 
 
