@@ -58,5 +58,6 @@ provided by Australian National Committee on Large Dams Incorporated (ANCOLD)
 Australia. (https://www.ancold.org.au/?page_id=4640 )
 
 
+### 6. [Normalized ACT insolation data](/normalized data/Dams-Australia-2010-v1.xls)
 
 
