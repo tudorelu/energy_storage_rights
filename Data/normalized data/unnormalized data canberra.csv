@@ -1,0 +1,27 @@
+-BEGIN HEADER-
+NASA/POWER SRB/FLASHFlux/MERRA2/ 0.5 x 0.5 Degree Climatologies 
+22-year Additional Solar Parameter Monthly & Annual Climatologies (July 1983 - June 2005), 30-year Meteorological and Solar Monthly & Annual Climatologies (January 1984 - December 2013) 
+Location: Regional 
+Elevation from MERRA-2: Average for 1/2x1/2 degree lat/lon region = na meters   Site = na 
+Climate zone: na (reference Briggs et al: http://www.energycodes.gov) 
+Value for missing model data cannot be computed or out of model availability range: -999 
+Parameter(s): 
+ALLSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) 
+-END HEADER-
+LAT,LON,PARAMETER,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,ANN
+-36.25,148.25,ALLSKY_SFC_SW_DWN,              7.06,              6.32,              5.19,              3.64,              2.57,              1.99,              2.19,              2.86,              3.99,              5.38,              6.37,              7.02,              4.55
+-36.25,148.75,ALLSKY_SFC_SW_DWN,              7.06,              6.32,              5.19,              3.64,              2.57,              1.99,              2.19,              2.86,              3.99,              5.38,              6.37,              7.02,              4.55
+-36.25,149.25,ALLSKY_SFC_SW_DWN,              6.50,              5.78,              4.82,              3.50,              2.61,              2.18,              2.45,              3.30,              4.33,              5.44,              6.09,              6.57,              4.46
+-36.25,149.75,ALLSKY_SFC_SW_DWN,              6.50,              5.78,              4.82,              3.50,              2.61,              2.18,              2.45,              3.30,              4.33,              5.44,              6.09,              6.57,              4.46
+-35.75,148.25,ALLSKY_SFC_SW_DWN,              7.21,              6.43,              5.36,              3.87,              2.75,              2.12,              2.28,              2.98,              4.14,              5.54,              6.57,              7.16,              4.70
+-35.75,148.75,ALLSKY_SFC_SW_DWN,              7.21,              6.43,              5.36,              3.87,              2.75,              2.12,              2.28,              2.98,              4.14,              5.54,              6.57,              7.16,              4.70
+-35.75,149.25,ALLSKY_SFC_SW_DWN,              6.82,              6.04,              5.08,              3.71,              2.73,              2.25,              2.48,              3.29,              4.42,              5.62,              6.39,              6.91,              4.64
+-35.75,149.75,ALLSKY_SFC_SW_DWN,              6.82,              6.04,              5.08,              3.71,              2.73,              2.25,              2.48,              3.29,              4.42,              5.62,              6.39,              6.91,              4.64
+-35.25,148.25,ALLSKY_SFC_SW_DWN,              7.21,              6.43,              5.36,              3.87,              2.75,              2.12,              2.28,              2.98,              4.14,              5.54,              6.57,              7.16,              4.70
+-35.25,148.75,ALLSKY_SFC_SW_DWN,              7.21,              6.43,              5.36,              3.87,              2.75,              2.12,              2.28,              2.98,              4.14,              5.54,              6.57,              7.16,              4.70
+-35.25,149.25,ALLSKY_SFC_SW_DWN,              6.82,              6.04,              5.08,              3.71,              2.73,              2.25,              2.48,              3.29,              4.42,              5.62,              6.39,              6.91,              4.64
+-35.25,149.75,ALLSKY_SFC_SW_DWN,              6.82,              6.04,              5.08,              3.71,              2.73,              2.25,              2.48,              3.29,              4.42,              5.62,              6.39,              6.91,              4.64
+-34.75,148.25,ALLSKY_SFC_SW_DWN,              7.26,              6.51,              5.45,              4.03,              2.91,              2.28,              2.46,              3.24,              4.40,              5.69,              6.68,              7.19,              4.84
+-34.75,148.75,ALLSKY_SFC_SW_DWN,              7.26,              6.51,              5.45,              4.03,              2.91,              2.28,              2.46,              3.24,              4.40,              5.69,              6.68,              7.19,              4.84
+-34.75,149.25,ALLSKY_SFC_SW_DWN,              7.09,              6.34,              5.30,              3.92,              2.87,              2.30,              2.51,              3.31,              4.50,              5.71,              6.60,              7.13,              4.80
+-34.75,149.75,ALLSKY_SFC_SW_DWN,              7.09,              6.34,              5.30,              3.92,              2.87,              2.30,              2.51,              3.31,              4.50,              5.71,              6.60,              7.13,              4.80
