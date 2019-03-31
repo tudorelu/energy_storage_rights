@@ -2,6 +2,6 @@
 
 There are two versions of map we have implemented by coding, the first one is showing a sample data on the map which is about temperature in whole world. The second one displays the data of canberra's potiential solar power in heatmap format. 
 
-# ![Sample data visualization](Image/heatmap sample.png)
+# ![Sample data visualization](Image/heatmap_sample.png)
 
-# ![Canberra data visualization](Image/heatmap canberra.png)
+# ![Canberra data visualization](Image/heatmap_canberra.png)
