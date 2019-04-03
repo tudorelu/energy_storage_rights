@@ -142,7 +142,7 @@
             <form action="" method="get;" style="padding:10px; font-size:20px;"> 
                 <h1 style="padding-bottom:30px;font-size:30px;">CHOOSE ENERGY</h1>
                
-                  <label ><input style="margin:10px;" name="e" type="radio" value="" />SOLAR </label> <br /> 
+                  <label onclick="change()"><input style="margin:10px;" name="e" type="radio" value="" />SOLAR </label> <br /> 
                   <label><input style="margin:10px;"name="e" type="radio" value="" />WIND </label> <br /> 
                   <label><input style="margin:10px;"  name="e" type="radio" value="" />WATER</label> 
 
@@ -164,6 +164,20 @@
      </div>
 
     </div>
+
+    <script>
+      function change(){
+        map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/u6302602/cjtwz64qj2cpl1fqjoeud8wrv',
+        center: [-94.596296, 27.709177],
+        zoom: 1.9
+        });
+        //map.style = 'mapbox://styles/u6302602/cjtwz64qj2cpl1fqjoeud8wrv';
+      }
+
+
+    </script>
   
   
   <script>
