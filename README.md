@@ -3,6 +3,7 @@ Table of Contents
   * [Introduction](#Introduction)
   * [Vision](#Vision)
   * [Objectives](#Objectives)
+  * [Deliverables](#Deliverables)
   * [Desired Features](#Desired_Features)
   * [Milestones](#Milestones)
   * [The potential of the project](#The_potential_of_the_project)
@@ -19,7 +20,38 @@ We strike to built up an application which used to evaluate and optimize the per
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
 
 ## Objectives
-Refer to Objectives.xlsx
+Refer to [Objectives.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Objectives.xlsx)
+
+## Deliverables
+### First deliverable:
+#### A basic website with maps ready to use
+#### A basic map with some basic functions including search, zoom in & out.
+#### A user interface which should be able to display renewable energy distribution in map.
+#### Basic data is sourced 
+Relevant data of World-wide Wind speed, Solar exposure, Water coverage
+#### Basic data is normalized and ready to use
+The data we search should be modified to the same format which can be used and visualized by our map. 
+#### Being able to visualize layer data
+A kind of renewable energy will be shown on our map, including solar, wind and hydro energy, which will be displayed on different layers, at least for sample size scale. 
+### Second deliverable (MVP)
+#### Other relevant data is sourced
+Solar energy: cloud amount and sunrise time, sunset time
+Wind energy: wind direction, wind gust
+Water energy: The depth of lake, precipitation
+#### Energy grid data is implemented 
+Display energy grid on map and their distances between each other.
+#### Calculate the user selected area
+The selected area can be in polygon or rectangle. Once our user select the area they want to learn about, our application should be able to output the estimated electricity generation and its return for each renewable energy annually. 
+#### Calculate the potential return of development
+#### Calculate the estimated gross return of energy storage installation.
+#### User-friendly interface to display essential information
+### Third deliverable
+#### Find the best combination of different technologies by calculation 
+We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
+#### A robust algorithm is developed 
+The algorithm should be able to optimise the choices of renewable energy and its corresponding location. 
+#### Calculate the return of investment for all combinations of technology
+#### A professional & fancy website
 
 
 ## Desired Features
@@ -42,7 +74,7 @@ Return of investment<br />
 Shown data usage<br />
 
 ## Milestones
-Refer to Gantt_project_planner.xlsx above
+Refer to [Gantt_project_planner.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Gantt_project_planner.xlsx) above
 
 ## The potential of the project
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allow to generate more interaction between the property owner and renewable energy developer. Land owner can be benefit from this application by making more effective and smart decision on the use of renewable energy product, it also help them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to delop their products. This application is expected to create a win-win situation between each parties.
