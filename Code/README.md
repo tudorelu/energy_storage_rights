@@ -16,3 +16,4 @@ Download "Australia wind.tif" and "GHI.tif", save them into /Code/data/
 Navigate your terminal into /Code/ and run the Python file "start.py"
 
 It is possible that you are missing some libarary to run the Python file. Here are some tips in installing some libararies.
+No module name "gdal": We found that installing of GDAL are often troublesome when using Pip install. Therefore, we advised to install using the wheel we provided in /Code/ folder named "GDAL-2.4.1-cp37-cp37m-win_amd64.whl", you can then run "pip install GDAL-2.4.1-cp37-cp37m-win_amd64.whl" in /Code/ folder.
