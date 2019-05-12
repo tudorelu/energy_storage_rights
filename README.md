@@ -15,21 +15,21 @@ Table of Contents
    
 ## Other Readme resources
 ### Master Branch
-
+[Master](https://github.com/tudorelu/energy_storage_rights)
 [Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Algorithm%20Documents)
 
-https://github.com/tudorelu/energy_storage_rights/tree/master/Code
-https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm
-https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data
-https://github.com/tudorelu/energy_storage_rights/tree/master/Data%20Research
-https://github.com/tudorelu/energy_storage_rights/tree/master/Progress
-https://github.com/tudorelu/energy_storage_rights/tree/master/To%20Do%20list%20App
+[Code](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)
+[Code/Testing](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm)
+[Code/data](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data)
+[Data Research](https://github.com/tudorelu/energy_storage_rights/tree/master/Data%20Research)
+[Progress](https://github.com/tudorelu/energy_storage_rights/tree/master/Progress)
+[To Do List App](https://github.com/tudorelu/energy_storage_rights/tree/master/To%20Do%20list%20App)
 
 ### Web Branch
-https://github.com/tudorelu/energy_storage_rights/tree/Web
+[Web](https://github.com/tudorelu/energy_storage_rights/tree/Web)
 
-https://github.com/tudorelu/energy_storage_rights/tree/Web/Large%20Data%20File%20To%20Create%20Layers
-https://github.com/tudorelu/energy_storage_rights/tree/Web/basic-arcgis
+[Large Data File](https://github.com/tudorelu/energy_storage_rights/tree/Web/Large%20Data%20File%20To%20Create%20Layers)
+[Basic Arcgis](https://github.com/tudorelu/energy_storage_rights/tree/Web/basic-arcgis)
 
 
 ## Status
