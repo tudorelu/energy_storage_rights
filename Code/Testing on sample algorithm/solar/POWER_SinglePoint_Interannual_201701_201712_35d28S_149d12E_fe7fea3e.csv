@@ -1,0 +1,12 @@
+-BEGIN HEADER-
+NASA/POWER SRB/FLASHFlux/MERRA2/GEOS 5.12.4 (FP-IT) 0.5 x 0.5 Degree Interannual Averages/Sums 
+Dates (month/day/year): 01/01/2017 through 12/31/2017 
+Location: Latitude  -35.2795   Longitude 149.1194 
+Elevation from MERRA-2: Average for 1/2x1/2 degree lat/lon region = 753.26 meters   Site = na 
+Climate zone: na (reference Briggs et al: http://www.energycodes.gov) 
+Value for missing model data cannot be computed or out of model availability range: -999 
+Parameter(s): 
+ALLSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) 
+-END HEADER-
+LAT,LON,PARAMETER,YEAR,JAN,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC,ANN
+-35.27949,149.11941,ALLSKY_SFC_SW_DWN,2017,              6.95,              5.94,              4.22,              3.92,              2.99,              2.39,              2.78,              3.63,              5.15,              5.93,              6.31,              6.48,              4.72

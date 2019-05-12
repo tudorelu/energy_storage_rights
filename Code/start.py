@@ -1,11 +1,8 @@
 from flask import Flask, render_template, request, jsonify
  
-from PIL import Image
-Image.MAX_IMAGE_PIXELS = 262215954 
-im = Image.open('data/Australia.tif')
+import gdal
 import numpy as np 
-imarray=np.zeros(im.size)
-imarray=np.array(im)
+from PIL import Image
 
 app = Flask(__name__)
  
@@ -14,30 +11,62 @@ def index():
 	return render_template('main.html')
  
 
-@app.route("/my_function", methods=["GET", "POST"])
-def my_function():
+@app.route("/calculate_wind_power_density", methods=["GET", "POST"])
+def calculate_wind_power_density():
+    
     if request.method == "POST":
         lon= float(request.json['lon'])
         lat= float(request.json['lat'])
-        print((lon,lat))
+        eff= float(request.json['ef'])
         # top:-8.923184
         # bottom:-43.958184
         # right:159.396449
         # left:112.618949
         # nearest neighbour
         # TBD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        column=int(((lon-112.618949)/(159.396449-112.618949))*imarray.shape[1])
-        row=int(((-lat-8.923184)/(43.958184-8.923184))*imarray.shape[0])
-        if imarray[row][column]>0:
-            return(str(imarray[row][column])+" W/m^2")
-    return "No data available"
+        column=int(((lon-112.618949)/(159.396449-112.618949))*aus_wind_np.shape[1])
+        row=int(((-lat-8.923184)/(43.958184-8.923184))*aus_wind_np.shape[0])
+        if aus_wind_np[row][column]>0:
+            wind_energy=str("{:.2f}".format(aus_wind_np[row][column]*eff/100))+" Wh/m^2 per day"
+        else:
+            wind_energy="No wind data available"
+        solar_energy=calculate_solar_energy(lat,lon,1,eff,1)
+    return "wind: "+wind_energy+"\n"+"Solar: "+solar_energy
+#  E = A * r * H * PR
+# Where:
+# E = Energy (kWh) 
+# A = Total solar panel Area (m2) 
+# r = solar panel yield or efficiency(%) 
+# H = Annual average solar radiation on tilted panels (shadings not included)
+# PR = Performance ratio, coefficient for losses (range between 0.5 and 0.9, default value = 0.75)
+# ALLSKY_SFC_SW_DWN SRB/FLASHFlux 1/2x1/2 All Sky Insolation Incident on a Horizontal Surface (kW-hr/m^2/day) 
+def calculate_solar_energy(lat,lon,m2,r,PR=1):
+
+    row,column=getcolrow(lon,lat,60,-55,180,-180,global_solar_np)
+    # print((lat,lon))
+    # print((row,column))
+    # print(global_solar_np[row][column])
+    if global_solar_np[row][column]>0:
+        data=global_solar_np[row][column]
+        out=str("{:.2f}".format(float(data)*m2*r*PR/100))+" kWh per day for "+str(m2)+" meter square at "+str(r)+"%' efficiency"
+    else: 
+        out="No solar data available"
+    return out
+
+def getcolrow(lon,lat,top,bottom,right,left,nparr):
+    column=int(((lon-left)/(right-left))*nparr.shape[1])
+    row=int(((-(lat-top))/(top-bottom))*nparr.shape[0])
     
-    #     data['release_date'] = request.json['movie_release_date']
-
-    #     print(data, file=sys.stderr)
-
-    #     return jsonify(data)
-    # else:
-    #     return render_template('the_page_i_was_on.html') 
+    return (row,column)
 if __name__ == '__main__':
-	app.run(debug=True)
+    Image.MAX_IMAGE_PIXELS = 262215954 
+    print("Loading Australia wind data")
+    aus_wind = Image.open('data/Australia.tif')
+    aus_wind_np=np.array(aus_wind)
+
+    print("Loading Global Solar radiation data")
+    global_solar_np = gdal.Open('data/GHI.tif')
+    global_solar_np = np.array(global_solar_np.GetRasterBand(1).ReadAsArray())
+
+    print("Loading finished")
+    app.run(debug=True)

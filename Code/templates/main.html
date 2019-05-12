@@ -7,58 +7,140 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" />
-  <!-- <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' /> -->
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
 
    <!-- side bar implement -->
 
    <style>
-       html, body, #viewDiv {
+
+.box {
+position: absolute;
+left:30px; 
+top:90px;
+}
+
+.box select {
+background-color: #0563af;
+color: white;
+padding: 12px;
+width: 250px;
+border: none;
+font-size: 20px;
+box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+-webkit-appearance: button;
+appearance: button;
+outline: none;
+}
+
+.box::before {
+content: ">";
+font-family: cursive;
+position: absolute;
+top: 0;
+right: 0;
+width: 20%;
+height: 100%;
+text-align: center;
+font-size: 28px;
+line-height: 45px;
+color: rgba(255, 255, 255, 0.5);
+background-color: rgba(255, 255, 255, 0.1);
+pointer-events: none;
+}
+
+.box:hover::before {
+color: rgba(255, 255, 255, 0.6);
+background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+padding: 30px;
+}
+.topnav {
+  font-family: Arial, Helvetica, sans-serif; 
+  overflow: hidden;
+  background-color: #333;
+  font-size:20px;
+  margin-top: 120px;
+  right:10px;
+  height: 60px;
+  width:110vw ;
+  position: fixed;
+  z-index: 1;
+  top: -130px;
+  margin-right: -11vw;
+  padding: 10px;
+  }
+  .topnav ul{
+  list-style-type: none;}
+  
+  
+  .topnav a {
+  text-decoration: none;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 35px;
+  font-size: 30px;
+  }
+  .topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  }
+  .topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+  }
+  
+html, body, #viewDiv {
       padding: 0;
       margin: 0;
       height: 100%;
       width: 100%;
-    }
+    }  
 
-   .sidenav {
-    text-align: center;
-    margin-top: 120px;
-    margin-left: 81%;
-    height: 100%;
-    width: 400px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:rgba(255, 255, 255, 0.9);
-    overflow-x: hidden;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+.sidenav {
+  font-family: "Lato", sans-serif;
+  height: 100%;
+  width: 320px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
 
-  .sidenav a {
-    padding: 40px 20px 20px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
+.sidenav a {
+  font-family: "Lato", sans-serif;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
 
-  .sidenav a:hover {
-    color: #ffffff;
-     background-color: rgba(5, 132, 216, 0.918);
-  }
+.sidenav a:hover {
+  color: #f1f1f1;
+}
 
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
 
-  .sidenav a.active {
-    background-color: #4CAF50;
-    color: white;
-  }
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
  .sbutton {
     width: 303px;
@@ -90,175 +172,221 @@
     color: white;
 
   }
-.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;}
-.embed-container iframe,
-.embed-container object,
- .embed-container
- iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
-  small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}
+  
+  table { 
+    background: ivory;
+  border-collapse: collapse;
+  width: 300px;
+}
+  table, td, th {
+  border: 1px solid black;
+}
+
+.sbutton {
+    display: inline;
+    width:120px;
+    border-radius:5px;
+    background-color:rgb(125, 186, 214);
+    padding-top:0px;
+    margin-left:10px;
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    list-style-type: none;
+  }
+  .sbutton a {
+    background-color: rgb(81, 174, 211);
+    text-decoration: none;
+    margin-left:40px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  .sbutton a:hover {
+    background-color: rgb(39, 129, 165);
+    color: rgb(255, 255, 255);
+  }
+  .sbutton a.active {
+    background-color: rgb(18, 144, 194);
+    color: white;
+  }
    </style>
 
 <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
 <link rel="stylesheet" type="text/css" href="main.css">
 <script src="https://esrau.maps.arcgis.com/apps/Embed/index.html?webmap=b90567202ab649729c1b60e900f33048&extent=18.4297,-65.9323,180,18.6791&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></script> -->
 <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
-
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}" />
+<link rel="stylesheet" type="text/css" href="main.css">
 <script src="https://js.arcgis.com/4.11/"></script>
 
 <script>
     require([
-  "esri/Map",
-  "esri/views/MapView",
+      "esri/Map",
+      "esri/views/MapView",
 
-  "esri/widgets/Search",
+      "esri/widgets/Search",
 
-  "esri/layers/VectorTileLayer",
+      "esri/layers/VectorTileLayer",
 
-  "esri/widgets/Sketch",
-  "esri/layers/GraphicsLayer",
-  "esri/layers/FeatureLayer",
-  "esri/layers/TileLayer",
-  "esri/layers/WMTSLayer",
-  "esri/layers/WMSLayer"
-
-
-], function(Map, MapView, Search, VectorTileLayer, Sketch, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer) {
-  const base_layer = new GraphicsLayer();
-
-  var map = new Map({
-    basemap: "topo-vector"
-  });
-  map.add(base_layer);
+      "esri/widgets/Sketch",
+      "esri/layers/GraphicsLayer",
+      "esri/layers/FeatureLayer",
+      "esri/layers/TileLayer",
+      "esri/layers/WMTSLayer",
+      "esri/layers/WMSLayer"
 
 
-  wind_layer = new TileLayer({
-      url: "https://tiles.arcgis.com/tiles/Lhhlijt6OxVvJhC4/arcgis/rest/services/Wind_tile/MapServer"
-  });
+    ], function(Map, MapView, Search, VectorTileLayer, Sketch, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer) {
+      const base_layer = new GraphicsLayer();
 
-  map.add(wind_layer);
-  wind_layer.visible = false;
+      map = new Map({
+        basemap: "topo-vector"
+      });
+      map.add(base_layer);
 
+      map.basemap="streets";
+      wind_layer = new TileLayer({
+          url: "https://tiles.arcgis.com/tiles/Lhhlijt6OxVvJhC4/arcgis/rest/services/Wind_tile/MapServer"
+      });
 
-  solar_layer = new TileLayer({
-      url: "https://tiles.arcgis.com/tiles/Lhhlijt6OxVvJhC4/arcgis/rest/services/Map/MapServer"
-  });
+      map.add(wind_layer);
+      wind_layer.visible = false;
+      wind_layer.opacity=0.5;
 
-  map.add(solar_layer);
-  solar_layer.visible = false;
+      solar_layer = new TileLayer({
+          url: "https://tiles.arcgis.com/tiles/Lhhlijt6OxVvJhC4/arcgis/rest/services/Map/MapServer"
+      });
 
-
-
-  water_layer = new WMTSLayer({
-    url: "https://storage.googleapis.com/global-surface-water/downloads_ancillary/WMTS_Global_Surface_Water.xml"
-  });
-  map.add(water_layer);
-  water_layer.visible = false;
+      map.add(solar_layer);
+      solar_layer.visible = false;
+      solar_layer.opacity=0.5;
 
 
 
-  energy_layer = new WMSLayer({
-    url: "http://services.ga.gov.au/gis/services/Proximity_To_Transmission_Infrastructure_Lines_WM/MapServer/WMSServer"
-    // sublayers: [{
-    //   name: // name of the sublayer,
-    //   legendUrl: // url to the legend
-    // }]
-  });
-  map.add(energy_layer);
-  energy_layer.visible = false;
+      water_layer = new WMTSLayer({
+        url: "https://storage.googleapis.com/global-surface-water/downloads_ancillary/WMTS_Global_Surface_Water.xml"
+      });
+      map.add(water_layer);
+      water_layer.visible = false;
+      water_layer.opacity=0.5;
+
+
+
+      energy_layer = new WMSLayer({
+        url: "http://services.ga.gov.au/gis/services/Proximity_To_Transmission_Infrastructure_Lines_WM/MapServer/WMSServer"
+        // sublayers: [{
+        //   name: // name of the sublayer,
+        //   legendUrl: // url to the legend
+        // }]
+      });
+      map.add(energy_layer);
+      energy_layer.visible = false;
+      energy_layer.opacity=0.5;
 
 
 
 
-  hydro_layer = new WMSLayer({
-    url: "https://gis.aremi.data61.io/anu/wms"
-  });
-  map.add(hydro_layer);
-  hydro_layer.visible = false;
+      hydro_layer = new WMSLayer({
+        url: "https://gis.aremi.data61.io/anu/wms"
+      });
+      map.add(hydro_layer);
+      hydro_layer.visible = false;
+      hydro_layer.opacity=0.5;
 
-  // const fl = new FeatureLayer({
-  //   url: "https://tiles.arcgis.com/tiles/ryycKNjqBGg4M7N9/arcgis/rest/services/Wind_for_AU_NZ_ID_PNG_WTL1/MapServer/2a"
-  //   });
-  // map.add(fl);
+      // const fl = new FeatureLayer({
+      //   url: "https://tiles.arcgis.com/tiles/ryycKNjqBGg4M7N9/arcgis/rest/services/Wind_for_AU_NZ_ID_PNG_WTL1/MapServer/2a"
+      //   });
+      // map.add(fl);
 
-  // <style>
-  // .embed-container {
-  //   position: relative;
-  //   padding-bottom: 80%;
-  //   height: 0; max-width: 100%;}
-  // .embed-container iframe,
-  // .embed-container object,
-  // .embed-container iframe{
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;}
+      // <style>
+      // .embed-container {
+      //   position: relative;
+      //   padding-bottom: 80%;
+      //   height: 0; max-width: 100%;}
+      // .embed-container iframe,
+      // .embed-container object,
+      // .embed-container iframe{
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100%;}
 
 
-  // small{
-  //   position: absolute;
-  //   z-index: 40;
-  //   bottom: 0;
-  //   margin-bottom: -15px;}
-  // </style>
-  // <div class="embed-container">
-  //   <iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Solar Insolation Map Global"
-  //   src="//esrau.maps.arcgis.com/apps/Embed/index.html?webmap=2a38d472ceff42ceb5ea45a3dc29a878&extent=-180,-72.2486,180,72.9587&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light">
-  //   </iframe></div>
+      // small{
+      //   position: absolute;
+      //   z-index: 40;
+      //   bottom: 0;
+      //   margin-bottom: -15px;}
+      // </style>
+      // <div class="embed-container">
+      //   <iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Solar Insolation Map Global"
+      //   src="//esrau.maps.arcgis.com/apps/Embed/index.html?webmap=2a38d472ceff42ceb5ea45a3dc29a878&extent=-180,-72.2486,180,72.9587&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light">
+      //   </iframe></div>
 
-  var view = new MapView({
-    container: "viewDiv",
-    map: map,
-    center: [147.71511,-36.09042],
-    zoom: 3
-  });
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [147.71511,-36.09042],
+        zoom: 3
+      });
 
-  var search = new Search({
-  view: view
-  });
+      var search = new Search({
+      view: view
+      });
 
-  const sketch = new Sketch({
-    layer: base_layer,
-    view: view
+      const sketch = new Sketch({
+        layer: base_layer,
+        view: view
+        });
+
+      view.ui.add(sketch, "bottom-left");
+
+      view.ui.add(search, "top-left");
+
+      view.on("click", function(evt){
+      search.clear();
+      view.popup.clear();
+      if (search.activeSource) {
+        var geocoder = search.activeSource.locator; // World geocode service
+        geocoder.locationToAddress(evt.mapPoint)
+          .then(function(response) { // Show the address found
+            var address = response.address;
+            showPopup(address, evt.mapPoint);
+          }, function(err) { // Show no address found
+            showPopup("No address found.", evt.mapPoint);
+          });
+      }
     });
 
-  view.ui.add(sketch, "top-right");
 
-  view.ui.add(search, "top-right");
+    //   sketch.on("create", function(event) {
+    //   if (event.state === "complete") {
 
-  view.on("click", function(evt){
-  search.clear();
-  view.popup.clear();
-  if (search.activeSource) {
-    var geocoder = search.activeSource.locator; // World geocode service
-    geocoder.locationToAddress(evt.mapPoint)
-      .then(function(response) { // Show the address found
-        var address = response.address;
-        showPopup(address, evt.mapPoint);
-      }, function(err) { // Show no address found
-        showPopup("No address found.", evt.mapPoint);
-      });
-  }
-});
+    //     console.log(event.mapPoint.longitude);
 
 
-//   sketch.on("create", function(event) {
-//   if (event.state === "complete") {
-
-//     console.log(event.mapPoint.longitude);
+    //   }
+    // });
 
 
-//   }
-// });
 
+    efficiency = 100;
+    area_value = 1;
+    poe = 0.23;
+    year=5;
+    cost_value = 10000;
+    solar_e = 0;
+    wind_e = 0;
+    show_mode = 1;
+    //1:wind , 2:solar
 
-  
-
-  function showPopup(address, pt) {
+    function showPopup(address, pt) {
     temp="";
    
-    fetch('/my_function', {
+    console.log(efficiency);
+    fetch('/calculate_wind_power_density', {
 
     // Specify the method
     method: 'POST',
@@ -266,47 +394,59 @@
     // A JSON payload
     body: JSON.stringify({
         "lon": pt.longitude,
-        "lat": pt.latitude
+        "lat": pt.latitude,
+        "ef" : efficiency
     }),
     headers: { 'Content-type': 'application/json' }
     }).then(function (response) {
         return response.text();
     }).then(function (text) {
-    console.log("1");
-    console.log(text);
         view.popup.open({
-        title:  + Math.round(pt.longitude * 100000)/100000 + "," + Math.round(pt.latitude * 100000)/100000,
+        title:  "Latitude: "+ Math.round(pt.latitude * 100000)/100000 + ", Longitude" + Math.round(pt.longitude * 100000)/100000,
         content: text,
         location: pt
         });
         // temp=text; // Print the greeting as text
+        
+      // console.log(parseFloat(text.split("Wh/m^2")[0].slice(6)))
+      // console.log(parseFloat(text.split("Solar: ")[1].split("kwh")[0]))
+
+      wind_e = parseFloat(text.split("Wh/m^2")[0].slice(6));
+      solar_e = parseFloat(text.split("Solar: ")[1].split("kwh")[0])
+      if (show_mode ==1 ){
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
+          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
+          document.getElementById("ROI").innerHTML = "ROI: TBD";
+        }
+
+
     });
-    // console.log("2");
-    // console.log(temp);
-    // view.popup.open({
-    //   title:  + Math.round(pt.longitude * 100000)/100000 + "," + Math.round(pt.latitude * 100000)/100000,
-    //   content: temp,
-    //   location: pt
-    // });
   }
 
-  // // Listen to sketch widget's create event.
-  // sketch.on("create", function(event) {
-  //   // check if the create event's state has changed to complete indicating
-  //   // the graphic create operation is completed.
-  //   if (event.state === "complete") {
-  //     // remove the graphic from the layer. Sketch adds
-  //     // the completed graphic to the layer by default.
-  //     polygonGraphicsLayer.remove(event.graphic);
+      // // Listen to sketch widget's create event.
+      // sketch.on("create", function(event) {
+      //   // check if the create event's state has changed to complete indicating
+      //   // the graphic create operation is completed.
+      //   if (event.state === "complete") {
+      //     // remove the graphic from the layer. Sketch adds
+      //     // the completed graphic to the layer by default.
+      //     polygonGraphicsLayer.remove(event.graphic);
 
-  //     // use the graphic.geometry to query features that intersect it
-  //     selectFeatures(event.graphic.geometry);
-  //   }
-  // });
+      //     // use the graphic.geometry to query features that intersect it
+      //     selectFeatures(event.graphic.geometry);
+      //   }
+      // });
 
 
 
-});
+    });
 
 
 
@@ -315,67 +455,213 @@
   </script>
 </head>
 <body>
-    <div class="topnav" style="padding: 2px 0px;">
-        <ul>
-          <li> <a class="active" href="index.html">Home</a> </li>
-          <li> <a href="news.html ">News</a> </li>
-          <li> <a href="contact.html">Contact</a></li>
-          <li> <a href="about.html">About</a></li>
-        </ul>
-    </div>
-    <div id="viewDiv"></div>
+   
+  <div class="topnav" style="padding: 2px 0px;">
+    <ul>
+      <li> <a class="active" href="main.html">Home</a> </li>
+      <li> <a href="news.html ">News</a> </li>
+      <li> <a href="contact.html">Contact</a></li>
+      <li> <a href="about.html">About</a></li>
+    </ul>
+</div>
+<div style="height:50px;"></div>
+    <div id="viewDiv"> </div>
+  
+    <span style="font-size:20px;cursor:pointer;margin-top: 120px;
+    right:10px;
+    height: 50px;
+    width: 120px;
+    position: fixed;
+    z-index: 1;
+    top: -40px;
+    border-radius:10px;
+    background-color:rgba(255, 255, 255, 0.9);
+    padding: 10px;" onclick="openNav()">&#9776; open</span></div>
+
+    <div id="mySidenav" class="sidenav">
+
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <h1 style="font-size:25px; font-weight: bolder; color: lightblue; text-align: center;">Base Map</h1>
+      <br>
+      <div class="box" >
+          <select id="select_map" onclick="change_base_map()">
+          <option value="topo-vector">topo-vector</option>
+          <option value="satellite">satellite</option>
+          <option value="streets">streets</option>
+          <option value="streets-night-vector">streets-night-vector</option>
+          
+          </select>
+      </div>
+          
 
 
+      <br><br>
 
-    <div class="sidenav" >
-     <h1 style=" background-color:rgb(111, 198, 209);width:400px;text-align: center;
-        font-size: 30px;  margin-top: -20px;padding: 18px; color:rgb(236, 235, 235)"> SELECT  AREA </h1>
-      <a href="#about">Area Calculate</a>
-      <a href="#services">Zoom</a>
-      <a href="#contact">Map Fomat</a>
+     
+      <div style="color:rgb(255, 255, 255);background-color:rgba(11, 158, 238, 0.596);">
+        
+        
 
-      <div class="option" style=" background-color:rgba(201, 225, 238, 0.822);height:150px;
-      width:400px;text-align: center;padding:45px 5px;">
+        <form action="" method="get;" style="padding:10px; font-size:15px;">
+            <h3 style="font-size:20px; font-weight: bolder; color: lightblue; text-align: center;">CHOOSE ENERGY</h3>
+
+              <label onclick="change_to_solar()"><input style="margin:10px;" name="e" type="checkbox" id="solar_button" value="" />SOLAR </label> <br />
+              <label onclick="change_to_wind()"><input style="margin:10px;"name="e" type="checkbox" id="wind_button" value="" />WIND </label> <br />
+              <label onclick="change_to_water()"><input style="margin:10px;"  name="e" type="checkbox" id="water_button" value="" />WATER</label> <br />
+              <label onclick="change_to_energy()"><input style="margin:10px;"  name="e" type="checkbox" id="energy_button" value="" />Energy Grid</label> <br />
+              <label onclick="change_to_hydro()"><input style="margin:10px;"  name="e" type="checkbox" id="hydro_button" value="" />Hydro</label> <br />
+
+          </form>
+      </div>
+
+      <br><br>
+    
+      <div  style="background:#c7c7c7;padding-bottom: 20px ">
+          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+              Efficiency:    <textarea style="margin-top:20px " rows="1" cols="5"id="effi" wrap="soft">100</textarea>% 
+          </p >
+          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+              Area :    <textarea style="margin-top:20px" rows="1" cols="5"id="area_a" wrap="soft">1</textarea>m^2
+          </p >
+          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+              Cost :    <textarea style="margin-top:20px " rows="1" cols="5"id="cost_c" wrap="soft">10000</textarea>$/m^2
+          </p >
+          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+              Price of energy :    <textarea style="margin-top:20px " rows="1" cols="5"id="poe_p" wrap="soft">0.23</textarea>$/kWh
+          </p >
+          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+              Year of investment :    <textarea style="margin-top:20px " rows="1" cols="5"id="year_y" wrap="soft">5</textarea>
+          </p >
+      </div>
+      <div style="width:80px;overflow:hidden;background:#e7e7e7;padding:10px;margin-top:-180px;margin-left:200px">
+          <button id="myBtn" value="myvalue" onclick="getNum()">Calculate</button>
+      </div>
+      
+      <div class="option" style=" background-color:rgba(201, 225, 238);height:100px;margin-top:120px;margin-bottom:20px;
+      width:303px;padding-left:10px;text-align: center;padding:5px 5px;">
 
       <div class="sbutton" >
           <ul>
-            <li> <a class="active" tag="#index">Polygon</a> </li>
-            <li> <a tag="#news ">Ractangle</a> </li>
+            <li> <a class="active" tag="#wind" onclick="toWindMode()" id="wind_m">Wind</a> </li>
+            <li> <a tag="#solar " class="" onclick="toSolarMode()" id="solar_m">Solar</a> </li>
           </ul>
 
       </div>
-
-      </div>
-
-
-
-      <div style="padding:30px;color:rgb(255, 255, 255);background-color:rgba(11, 158, 238, 0.596);">
-          <form action="" method="get;" style="padding:10px; font-size:20px;">
-              <h1 style="padding-bottom:30px;font-size:30px;">CHOOSE ENERGY</h1>
-
-                <label onclick="change_to_solar()"><input style="margin:10px;" name="e" type="checkbox" id="solar_button" value="" />SOLAR </label> <br />
-                <label onclick="change_to_wind()"><input style="margin:10px;"name="e" type="checkbox" id="wind_button" value="" />WIND </label> <br />
-                <label onclick="change_to_water()"><input style="margin:10px;"  name="e" type="checkbox" id="water_button" value="" />WATER</label> <br />
-                <label onclick="change_to_energy()"><input style="margin:10px;"  name="e" type="checkbox" id="energy_button" value="" />Energy Grid</label> <br />
-                <label onclick="change_to_hydro()"><input style="margin:10px;"  name="e" type="checkbox" id="hydro_button" value="" />Hydro</label> <br />
-
-            </form>
-        </div>
-
-
-      <div >
-
-          <p style="font-weight:30;font-size: 30px; color:#818181;padding: 35px;margin-left:-30px; ">
-              OUTPUT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;123kWH</p>
-
-
-
-      </div>
-
-      <a href="#about">About</a>
     </div>
 
-    <script>
+    <div >
+        <p id="energy_show" style="background:#c7c7c7 ;font-weight:30;font-size: 15px; color:#818181;padding: 35px;margin-left:-20px;margin-top: -20px ">Annual Wind output
+    </div>
+
+    <div >
+        <p id="Annual_profit"style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+            Annual profit
+    </div>
+    <div >
+        <p  id="Net_profit" style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+            Net profit
+    </div>
+    <div >
+        <p  id="ROI" style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+            ROI
+    </div>
+    </div>
+    
+  </div>
+
+  
+
+  
+
+     
+
+      <script>
+      function change_base_map(){
+        var x = document.getElementById("select_map").value;
+        map.basemap = x;
+      }
+
+      
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      function toSolarMode(){
+        console.log("toso")
+        show_mode = 2;
+        document.getElementById("solar_m").class="active";
+        document.getElementById("wind_m").class="";
+        if (show_mode ==1 ){
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
+          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
+          document.getElementById("ROI").innerHTML = "ROI: TBD";
+        }
+
+      }
+
+      function toWindMode(){
+        console.log("towin")
+        show_mode = 1;
+        document.getElementById("solar_m").class="";
+        document.getElementById("wind_m").class="active";
+        if (show_mode ==1 ){
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
+          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
+          document.getElementById("ROI").innerHTML = "ROI: TBD";
+        }
+
+      }
+
+
+          
+      function getNum() {
+        var x = document.getElementById("effi").value;
+        var y = document.getElementById("area_a").value;
+        var z = document.getElementById("cost_c").value;
+        cost_value=document.getElementById("cost_c").value;
+        poe=document.getElementById("poe_p").value;
+        year=document.getElementById("year_y").value;
+        if (isNaN(x) || isNaN(y) || isNaN(z)) {
+        document.getElementById("energy_show").innerHTML = "please enter a number";
+        }else {
+        efficiency = x;
+        area_value= y
+        if (show_mode ==1 ){
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
+          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
+          document.getElementById("ROI").innerHTML = "ROI: TBD";
+        }
+
+
+        }
+      }
+
 
       function change_to_solar() {
         // Get the checkbox
@@ -437,6 +723,6 @@
 
 
 
-   </div>
+  
 </body>
 </html>
