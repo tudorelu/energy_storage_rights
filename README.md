@@ -10,7 +10,7 @@ Table of Contents
   * [The potential of the project](#The_potential_of_the_project)
   * [Acknowledgement](#Acknowledgement)
   * [Work allocation](#work_allocation)
-  * [Link to our other resources](#Link_to_our_other_resources)
+  * [Link to our other resources](#Link to our other resources)
    
 
 ## Status
