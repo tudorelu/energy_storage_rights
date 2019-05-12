@@ -120,7 +120,6 @@ Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
 ### Master Branch
 [Master](https://github.com/tudorelu/energy_storage_rights)<br />
 [Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Algorithm%20Documents)<br />
-
 [Code](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)<br />
 [Code/Testing](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm)<br />
 [Code/data](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data)<br />
@@ -130,6 +129,5 @@ Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
 
 ### Web Branch
 [Web](https://github.com/tudorelu/energy_storage_rights/tree/Web)<br />
-
 [Large Data File](https://github.com/tudorelu/energy_storage_rights/tree/Web/Large%20Data%20File%20To%20Create%20Layers)<br />
 [Basic Arcgis](https://github.com/tudorelu/energy_storage_rights/tree/Web/basic-arcgis)<br />
