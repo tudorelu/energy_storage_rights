@@ -31,41 +31,43 @@ Refer to [Objectives.xlsx](https://github.com/tudorelu/energy_storage_rights/blo
 
 ## Deliverables
 ### First deliverable:
-#### A basic website with maps ready to use
-#### A basic map with some basic functions including search, zoom in & out.
-#### A user interface which should be able to display renewable energy distribution in map.
-#### Basic data is sourced 
+* **A basic website with maps ready to use**
+* **A basic map with some basic functions including search, zoom in & out.**
+* **A user interface which should be able to display renewable energy distribution in map.**
+* **Basic data is sourced**<br />
 Relevant data of World-wide Wind speed, Solar exposure, Water coverage
-#### Basic data is normalized and ready to use
+* **Basic data is normalized and ready to use**<br />
 The data we search should be modified to the same format which can be used and visualized by our map. 
-#### Being able to visualize layer data
+* **Being able to visualize layer data**<br />
 A kind of renewable energy will be shown on our map, including solar, wind and hydro energy, which will be displayed on different layers, at least for sample size scale. 
 ### Second deliverable (MVP)
-#### Improved functionality of the map engine
+* **Improved functionality of the map engine**<br />
 Able to change the basemap base on user preference. Better visualize the data (use transparency and different ways of visualization such as discrete or category)
-#### Increased speed of switching between different data layer
+* **Increased speed of switching between different data layer**<br />
 The speed of switching between different data layer is slow in deliverable one, it is resonable and neccessary to improve the performance of the website.
-#### Relevant data is sourced
+* **Relevant data is sourced**<br />
 Solar energy: Global horizontal irradiation, Optimum tilt to maximize yearly yield, Photovoltaic power potential
 Wind energy: Wind direction, Wind power density at different height
 Water energy: The depth of lake, occurence of water, potential sites for pumped hydro
-#### Energy grid data is implemented 
+* **Energy grid data is implemented**<br />
 Display energy grid on map and their distances between each other. The visualization should tell the distance from energy grid line ( electricity transmission line) to the point of interest. This can be use to future calculation of the cost that required to implement various renewable technologies.
-#### Calculate the user selected area
+* **Calculate the user selected area**<br />
 The user will be able to selecte area that they are interest to develop renewable technologies. The shape can be in polygon or rectangle. Our application should be able to measure the size of the area and output the estimated potential energy generation and its return for each renewable energy in details. 
-#### Calculate the potential return of development
+* **Calculate the potential return of development**<br />
 This include calculate annual power output, annual profit, net profit, and return of investment. The calculation is basic calculation that should be further improved in later development.
-#### Calculate the estimated gross return of energy storage installation.
+* **Calculate the estimated gross return of energy storage installation.**<br />
 As above.
-#### User-friendly interface to display essential information
+* **User-friendly interface to display essential information**<br />
 Refine the design on side bar to be more professional.
 ### Third deliverable
-#### Find the best combination of different technologies by calculation 
+* **Find the best combination of different technologies by calculation**<br />
 We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
-#### A robust algorithm is developed 
+* **Use machine learning technologies to predict point of interest where no data available**<br />
+We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
+* **A robust algorithm is developed**<br />
 The algorithm should be able to optimise the choices of renewable energy and its corresponding location. 
-#### Calculate the return of investment for all combinations of technology
-#### A professional & fancy website
+* **Calculate the return of investment for all combinations of technology**
+* **A professional & fancy website**
 
 
 ## Desired Features
