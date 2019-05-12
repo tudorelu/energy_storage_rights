@@ -43,8 +43,8 @@ A kind of renewable energy will be shown on our map, including solar, wind and h
 ### Second deliverable (MVP)
 * **Improved functionality of the map engine**<br />
 Able to change the basemap base on user preference. Better visualize the data (use transparency and different ways of visualization such as discrete or category)
-* **Increased speed of switching between different data layer**<br />
-The speed of switching between different data layer is slow in deliverable one, it is resonable and neccessary to improve the performance of the website.
+* **A high-efficient map engine**<br />
+The speed of switching between different data layer is slow in deliverable one, it is resonable and neccessary to improve the performance and efficient of the website.
 * **Relevant data is sourced**<br />
 Solar energy: Global horizontal irradiation, Optimum tilt to maximize yearly yield, Photovoltaic power potential
 Wind energy: Wind direction, Wind power density at different height
