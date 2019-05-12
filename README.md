@@ -21,7 +21,7 @@ Deployment of renewable energy technologies in different location are often come
 
 We strike to built up an application which used to evaluate and optimize the performance and potential of location viable for development of different renewable-energy technologies, this outcome will then be visualized to the target user. 
 
-Through our development on this project, we use Google drive for documentation purposes and data storage. Trello for task management and assignment. The links can be found in [Link to our other resources](#Link_to_our_other_resources).
+Through our development on this project, we use Google drive for documentation purposes and data storage. Trello for task management and assignment. The links can be found in [Link to our other resources](#Link-to-our-other-resources).
 
 ## Vision
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
@@ -41,17 +41,24 @@ The data we search should be modified to the same format which can be used and v
 #### Being able to visualize layer data
 A kind of renewable energy will be shown on our map, including solar, wind and hydro energy, which will be displayed on different layers, at least for sample size scale. 
 ### Second deliverable (MVP)
-#### Other relevant data is sourced
-Solar energy: cloud amount and sunrise time, sunset time
-Wind energy: wind direction, wind gust
-Water energy: The depth of lake, precipitation
+#### Improved functionality of the map engine
+Able to change the basemap base on user preference. Better visualize the data (use transparency and different ways of visualization such as discrete or category)
+#### Increased speed of switching between different data layer
+The speed of switching between different data layer is slow in deliverable one, it is resonable and neccessary to improve the performance of the website.
+#### Relevant data is sourced
+Solar energy: Global horizontal irradiation, Optimum tilt to maximize yearly yield, Photovoltaic power potential
+Wind energy: Wind direction, Wind power density at different height
+Water energy: The depth of lake, occurence of water, potential sites for pumped hydro
 #### Energy grid data is implemented 
-Display energy grid on map and their distances between each other.
+Display energy grid on map and their distances between each other. The visualization should tell the distance from energy grid line ( electricity transmission line) to the point of interest. This can be use to future calculation of the cost that required to implement various renewable technologies.
 #### Calculate the user selected area
-The selected area can be in polygon or rectangle. Once our user select the area they want to learn about, our application should be able to output the estimated electricity generation and its return for each renewable energy annually. 
+The user will be able to selecte area that they are interest to develop renewable technologies. The shape can be in polygon or rectangle. Our application should be able to measure the size of the area and output the estimated potential energy generation and its return for each renewable energy in details. 
 #### Calculate the potential return of development
+This include calculate annual power output, annual profit, net profit, and return of investment. The calculation is basic calculation that should be further improved in later development.
 #### Calculate the estimated gross return of energy storage installation.
+As above.
 #### User-friendly interface to display essential information
+Refine the design on side bar to be more professional.
 ### Third deliverable
 #### Find the best combination of different technologies by calculation 
 We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
