@@ -5,7 +5,7 @@ ROI = Net Profit / Total Investment * 100
 ### For gross profit: 
 Gross Profit =(( energy power * electricity price) - maintenance fee) * number of year
 
-### The installation cost is to calculate the installation fees for different technologies including solar & wind panels. Basically, most of the investment from users are put in the installation of technologies, thus the investment can be simplified to installation cost. 
+##### The installation cost is to calculate the installation fees for different technologies including solar & wind panels. Basically, most of the investment from users are put in the installation of technologies, thus the investment can be simplified to installation cost. 
 Investment = installation cost
 (Note: if possible, please take inspection fee and technology renew fee,the price of conducted material, labour cost in consideration)
 
