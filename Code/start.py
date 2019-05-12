@@ -10,15 +10,15 @@ app = Flask(__name__)
 def index():
 	return render_template('main.html')
     
-@app.route('/')
+@app.route('/about')
 def about():
 	return render_template('about.html')
     
-@app.route('/')
+@app.route('/contact')
 def contact():
 	return render_template('contact.html')
     
-@app.route('/')
+@app.route('/news')
 def news():
 	return render_template('news.html')
  
