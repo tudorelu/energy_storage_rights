@@ -16,4 +16,7 @@ In addition, the installation cost also need to be taken into consideration in o
 Therefore, the return of investment can be calculated by:
 ### ROI  = Net profit / (installation cost * area input) * 100
 
+
+
+
 ### Detailed explanation of this algorithm is shown in the document of “Cost analysis of generating roi”. 
