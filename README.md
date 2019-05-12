@@ -10,6 +10,8 @@ Table of Contents
   * [The potential of the project](#The_potential_of_the_project)
   * [Acknowledgement](#Acknowledgement)
   * [Work allocation](#work_allocation)
+  * [Link to our other resources](#Link_to_our_other_resources)
+   
 
 ## Status
 We are currently undergoing the development of our second deliverable. We have developed a webiste that is able to visualize Solar irradiation, Water occurence, Wind power density, Possible site for Pumped Hydro, and the distance to energy grid node in Australia. In addition, our website have the abilities to do data analysis by identify the possible energy output at the point of interest (for wind and solar for now), determined the possible annual power output, and calculate the return of investment (ROI). However, there is still plenty of room for us to improve on our calculation as we realized there are many factors that can affect the outcome. Moreover, the user are able to draw specific shape in the map using our sketch widget, this can be used for selecting the user-desired area for evaluation. The next step of our development will mainly focus on developing the algorithm for calcuating ROI and further develop on the area selection function. The instruction on how to run our website can be found [here](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)
@@ -18,6 +20,8 @@ We are currently undergoing the development of our second deliverable. We have d
 Deployment of renewable energy technologies in different location are often comes with advantage and disadvantage. The energy storage rights is a digital platform that will map, evaluate, promote and help investments in the development rights for energy storage pilot projects such as pumped hydro energy storage, floating solar pilots on lake or sea. Alongside with the platform is energy storage rights application.
 
 We strike to built up an application which used to evaluate and optimize the performance and potential of location viable for development of different renewable-energy technologies, this outcome will then be visualized to the target user. 
+
+Through our development on this project, we use Google drive for documentation purposes and data storage. Trello for task management and assignment. The links can be found in [Link to our other resources](#Link_to_our_other_resources).
 
 ## Vision
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
