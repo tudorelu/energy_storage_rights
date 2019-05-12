@@ -42,10 +42,11 @@
      <div id='map' >
         <div class="topnav">
                 <ul>
-                  <li> <a href="main.html">Home</a> </li>
-                  <li> <a href="news.html ">News</a> </li>
-                  <li> <a class="active" href="contact.html">Contact</a></li>
-                  <li> <a href="about.html">About</a></li>
+
+                  <li> <a href="{{ url_for('index') }}">Home</a> </li>
+                  <li> <a href="{{ url_for('news') }}">News</a> </li>
+                  <li> <a  class="active" href="{{ url_for('contact') }}">Contact</a></li>
+                  <li> <a  href="{{ url_for('about') }}">About</a></li>
                 </ul> 
           </div>
         </div>    

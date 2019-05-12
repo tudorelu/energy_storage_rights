@@ -9,6 +9,18 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 	return render_template('main.html')
+    
+@app.route('/')
+def about():
+	return render_template('about.html')
+    
+@app.route('/')
+def contact():
+	return render_template('contact.html')
+    
+@app.route('/')
+def news():
+	return render_template('news.html')
  
 
 @app.route("/calculate_wind_power_density", methods=["GET", "POST"])
@@ -61,7 +73,7 @@ def getcolrow(lon,lat,top,bottom,right,left,nparr):
 if __name__ == '__main__':
     Image.MAX_IMAGE_PIXELS = 262215954 
     print("Loading Australia wind data")
-    aus_wind = Image.open('data/Australia.tif')
+    aus_wind = Image.open('data/Australia wind.tif')
     aus_wind_np=np.array(aus_wind)
 
     print("Loading Global Solar radiation data")
