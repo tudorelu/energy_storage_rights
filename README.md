@@ -112,3 +112,21 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 ## Link to our other resources
 Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs <br/>
 Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
+
+## Other Readme resources
+### Master Branch
+
+[Algorithm Document]https://github.com/tudorelu/energy_storage_rights/tree/master/Algorithm%20Documents
+
+https://github.com/tudorelu/energy_storage_rights/tree/master/Code
+https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm
+https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data
+https://github.com/tudorelu/energy_storage_rights/tree/master/Data%20Research
+https://github.com/tudorelu/energy_storage_rights/tree/master/Progress
+https://github.com/tudorelu/energy_storage_rights/tree/master/To%20Do%20list%20App
+
+### Web Branch
+https://github.com/tudorelu/energy_storage_rights/tree/Web
+
+https://github.com/tudorelu/energy_storage_rights/tree/Web/Large%20Data%20File%20To%20Create%20Layers
+https://github.com/tudorelu/energy_storage_rights/tree/Web/basic-arcgis
