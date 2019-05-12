@@ -5,11 +5,11 @@ Table of Contents
   * [Vision](#Vision)
   * [Objectives](#Objectives)
   * [Deliverables](#Deliverables)
-  * [Desired Features](#Desired_Features)
+  * [Desired Features](#Desired-Features)
   * [Milestones](#Milestones)
-  * [The potential of the project](#The_potential_of_the_project)
+  * [The potential of the project](#The-potential-of-the_project)
   * [Acknowledgement](#Acknowledgement)
-  * [Work allocation](#work_allocation)
+  * [Work allocation](#work-allocation)
   * [Link to our other resources](#Link-to-our-other-resources)
    
 
