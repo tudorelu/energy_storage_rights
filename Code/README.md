@@ -12,7 +12,7 @@ It opens up our website where our data is visualized in the map. However, the da
 
 ### 3 If you wish to perform data analysis and calculation
 Since GitHub limits the size of file we can upload into our repository. We are not able to store our data file in Git and thus, our data file is store at Google doc: https://drive.google.com/drive/folders/1mtH_evyiBC0kgZiA23ROwWvUPP2KmC6z?usp=sharing <br/>
-Download "Australia wind.tif" and "GHI.tif", save them into /Code/data/
+Download **"Australia wind.tif"** and **"GHI.tif"**, save them into **/Code/data/**
 However, if you are not interested in doing analysis on the data and only want to have a look at the color map, you can stop here. Notes that the initial loading and visualizing could take sometimes.
 
 ### 4 Start the website from Flask
