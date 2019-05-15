@@ -743,7 +743,7 @@ html, body, #viewDiv {
   <div class="topnav" style="padding: 2px 0px;">
     <ul>
       <li> <a class="active" href="{{ url_for('index') }}">Home</a> </li>
-      <li> <a href="{{ url_for('news') }}">News</a> </li>
+      <li> <a href="{{ url_for('news') }}">Help</a> </li>
       <li> <a href="{{ url_for('contact') }}">Contact</a></li>
       <li> <a href="{{ url_for('about') }}">About</a></li>
     </ul>
@@ -751,10 +751,10 @@ html, body, #viewDiv {
   <div style="height:50px;"></div>
       <div id="viewDiv"> </div>
       <div class="selectDraw">
-          <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center">Select Area</h1>
-          <button class="btn success" onclick="changetopoint()">&#8226<span class="tooltiptext">1 wasedcnhyass</span></button>
-          <button class="btn info" onclick="changetopolygon()">&#9826;<span class="tooltiptext">2</span></button>
-          <button class="btn warning" onclick="changetonan()">&#10008<span class="tooltiptext">3</span></button>
+          <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center"><b>Select Area</b></h1>
+          <button class="btn success" onclick="changetopoint()">&#8226<span class="tooltiptext">Single Point Data Select</span></button>
+          <button class="btn info" onclick="changetopolygon()">&#9826;<span class="tooltiptext">Polygon Regional Data Select (double click to finish)</span></button>
+          <button class="btn warning" onclick="changetonan()">&#10008<span class="tooltiptext">Remove Selection</span></button>
           </div>
   
       <span style="font-size:20px;cursor:pointer;margin-top: 120px;
@@ -816,10 +816,10 @@ html, body, #viewDiv {
           Area : <input type="text" style="margin-top:20px; width:170px;height:25px;" rows="1" cols="5"id="area_a" wrap="soft" value="1"></input>m^2
           </p >
           <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-          Cost : <input type="text" style="margin-top:20px; width:120px;height:25px;" rows="1" cols="5"id="cost_c" wrap="soft" value="10000"></input>$/m^2
+          Cost : <input type="text" style="margin-top:20px; width:120px;height:25px;" rows="1" cols="5"id="cost_c" wrap="soft" value="10000"></input>US$/m^2
           </p >
           <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-          Price of energy : <input type="text" style="margin-top:20px; width:60px;height:25px;" rows="1" cols="5"id="poe_p" wrap="soft" value="0.23"></input>$/kWh
+          Price of energy : <input type="text" style="margin-top:20px; width:40px;height:25px;" rows="1" cols="5"id="poe_p" wrap="soft" value="0.23"></input>US$/kWh
           </p >
           <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
           Year of investment : <input type="text" style="margin-top:20px; width:30px;height:25px;" rows="1" cols="5"id="year_y" wrap="soft" value = "5"></input>
