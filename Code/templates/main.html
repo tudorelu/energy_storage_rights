@@ -597,6 +597,7 @@ html, body, #viewDiv {
       // Add the graphic to the view
       view.graphics.add(pointGraphic);
       showPopup3(pt);
+      lastpt=pt;
     }
     // function drawPoint(address,pt){
     //   view.graphics.removeAll();
@@ -634,6 +635,7 @@ html, body, #viewDiv {
     wind_e = 0;
     show_mode = 1;
     //1:wind , 2:solar
+    lastpt=null;
     function showPopup3(pt) {
     temp="";
     area_value=1;
@@ -666,16 +668,21 @@ html, body, #viewDiv {
       wind_e = parseFloat(text.split("Wh")[0].slice(6));
       solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
       if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+          cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
           document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
-          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
-          document.getElementById("ROI").innerHTML = "ROI: TBD";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*poe-0.11*solar_e*area_value)*year-3.05*solar_e*1000*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*poe-0.11*solar_e*area_value)*year-3.05*solar_e*1000*area_value)*100/(3.05*solar_e*1000*area_value)).toFixed(4)+ "%";
+          
         }
 
 
@@ -714,16 +721,22 @@ html, body, #viewDiv {
       wind_e = parseFloat(text.split("Wh per")[0].slice(6));
       solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
       if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+        cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
           document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
+          
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
-          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
-          document.getElementById("ROI").innerHTML = "ROI: TBD";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000)*100/(3.05*solar_e*1000)).toFixed(4)+ "%";
+          
         }
 
 
@@ -902,46 +915,93 @@ html, body, #viewDiv {
 
       function toSolarMode(){
         show_mode = 2;
+        var y = document.getElementById("area_a").value;
         document.getElementById("solar_m").class="active";
         document.getElementById("wind_m").class="";
+        if (drawselection==2){
         if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+          cost_value=document.getElementById("cost_c").value;
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + ((wind_e*y/area_value) * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((wind_e*y/area_value) * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e*y/area_value)  * 24 * 365*poe/1000-48.89*y)*year-cost_value*y).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e*y/area_value) * 24 * 365*poe/1000-48.89*y)*year-cost_value*y)*100/(cost_value*y)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
+        document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + ((solar_e*y/area_value)  * 365).toFixed(4)+ " Kwh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((solar_e*y/area_value)* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((solar_e*y/area_value)* 365*poe-0.11*(solar_e*y/area_value))*year-3.05*(solar_e*y/area_value)*1000).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + ((((solar_e*y/area_value)* 365*poe-0.11*(solar_e*y/area_value))*year-3.05*(solar_e*y/area_value)*1000)*100/(3.05*(solar_e*y/area_value)*1000)).toFixed(4)+ "%";
+          
+        }}else{
+        if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+          cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
           document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
-          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
-          document.getElementById("ROI").innerHTML = "ROI: TBD";
-        }
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
+        document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000)*100/(3.05*solar_e*1000)).toFixed(4)+ "%";
+          
+        }}
 
       }
 
       function toWindMode(){
         show_mode = 1;
+        var y = document.getElementById("area_a").value;
         document.getElementById("solar_m").class="";
         document.getElementById("wind_m").class="active";
+        if (drawselection==2){
         if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+          cost_value=document.getElementById("cost_c").value;
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + ((wind_e*y/area_value) * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((wind_e*y/area_value) * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e*y/area_value)  * 24 * 365*poe/1000-48.89*y)*year-cost_value*y).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e*y/area_value) * 24 * 365*poe/1000-48.89*y)*year-cost_value*y)*100/(cost_value*y)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
+        document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + ((solar_e*y/area_value)  * 365).toFixed(4)+ " Kwh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((solar_e*y/area_value)* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((solar_e*y/area_value)* 365*poe-0.11*(solar_e*y/area_value))*year-3.05*(solar_e*y/area_value)*1000).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + ((((solar_e*y/area_value)* 365*poe-0.11*(solar_e*y/area_value))*year-3.05*(solar_e*y/area_value)*1000)*100/3.05*(solar_e*y/area_value)*1000).toFixed(4)+ "%";
+          
+        }}else{
+        if (show_mode ==1 ){
+          document.getElementById("cost_c").value=10000;
+          cost_value=document.getElementById("cost_c").value;
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
           document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
-          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
-          document.getElementById("ROI").innerHTML = "ROI: TBD";
-        }
+          document.getElementById("cost_c").value=3.05*solar_e*1000/area_value;
+        cost_value=document.getElementById("cost_c").value;
+        document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*poe-0.11*solar_e)*year-3.05*solar_e*1000)*100/(3.05*solar_e*1000)).toFixed(4)+ "%";
+          
+        }}
 
       }
 
 
           
       function getNum() {
-        
         var x = document.getElementById("effi").value;
         var y = document.getElementById("area_a").value;
         var z = document.getElementById("cost_c").value;
@@ -953,16 +1013,17 @@ html, body, #viewDiv {
         }else {
         efficiency = x;
         if (show_mode ==1 ){
-          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + ((wind_e*y/area_value) * 24 * 365 /1000).toFixed(4)+ " KWh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((wind_e*y/area_value) * 24 * 365*poe/1000).toFixed(4)+ " dollars";
-          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e*y/area_value)  * 24 * 365*poe/1000-48.89*y)*year-cost_value*y).toFixed(4)+ " dollars";
-          document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e*y/area_value) * 24 * 365*poe/1000-48.89*y)*year-cost_value*y)*100/(cost_value*y)).toFixed(4)+ "%";
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
-          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
-          document.getElementById("ROI").innerHTML = "ROI: TBD";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*poe).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*poe-0.11*solar_e)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*poe-0.11*solar_e)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
         }
         area_value= y;
 

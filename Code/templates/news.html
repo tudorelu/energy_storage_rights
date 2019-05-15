@@ -202,11 +202,92 @@
         background-color: rgb(18, 144, 194);
         color: white;
       }
-       </style>
-  <style> 
+       
    body { 
         background-attachment:fixed;
         background-image:url('static/bg.jpg');}
+
+
+  .centerSection950px{
+    width: 950px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  p.CommonTitle{
+  font-size: 50px;
+  margin-top: 80px;
+  font-family: Lucida Calligraphy;
+  font-weight: bolder;
+  text-align: center;
+  }
+
+  p.storyParagraph{
+  font-size: 22px;
+  font-family: Comic Sans MS;
+  font-weight: bold;
+  color: black;
+
+  text-align:center;
+  margin-left: 50px;
+  margin-right: 50px;
+  }
+
+  #photoGallery {
+  width: 85%;
+  height: auto;
+  position: sticky;
+  margin: auto;
+  margin-top: 100px;
+  }
+
+  #photoGallery .mySlides{
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  #photoGallery .prevPhoto, #photoGallery .nextPhoto {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Position the "next button" to the right */
+  #photoGallery .nextPhoto {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a grey color with a little bit see-through */
+  #photoGallery .prevPhoto:hover, #photoGallery .nextPhoto:hover {
+    background-color: rgba(164,164,164,0.8);
+  }
+
+  /* Caption text */
+  #photoGallery .text {
+    color: black;
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+  }
+
+  /*adjust the size of images*/
+  #photoGallery img{
+    width: 100%;
+    height: auto;
+  }
+
+
+
   
      </style>
 
@@ -235,6 +316,110 @@
              </ul> 
        </div>
      </div>    
+
+
+
+    
+     <div class="centerSection950px">
+
+      <br><br>
+
+      <p class="CommonTitle">Help</p>
+
+      <br>
+      <p class="storyParagraph">This page is a simple tour which can guide you how to use our map</p>
+
+
+      <!-- Slideshow container -->
+      <div id="photoGallery">
+
+        <!-- image caption text -->
+        <!-- first image -->
+        <div class="mySlides">
+          <img src="../static/1.png" alt="first">
+          <div class="text">This is the base page of out map</div>
+        </div>
+        <!-- second image -->
+        <div class="mySlides">
+          <img src="../static/2.png" alt="second">
+          <div class="text">In the choose energy part, you can shoose which energy to be represented on the map</div>
+        </div>
+        <!-- third image -->
+        <div class="mySlides">
+          <img src="../static/3.png" alt="third">
+          <div class="text">on the left top side, you can zoom and search a specific area on the map </div>
+        </div>
+        <!-- fourth image -->
+        <div class="mySlides">
+          <img src="../static/4.png" alt="fourth">
+          <div class="text">In the select area part, you can choose a specific area to show the information</div>
+        </div>
+        <!-- fifth image -->
+        <div class="mySlides">
+          <img src="../static/5.png" alt="fifth">
+          <div class="text">when you click on the map, the information of that area will display</div>
+        </div>
+        <!-- sixth image -->
+        <div class="mySlides">
+          <img src="../static/6.png" alt="sixth">
+          <div class="text">you will see the information of that area on the left, and you can choose which information to show</div>
+        </div>
+        <!-- seventh image -->
+        <div class="mySlides">
+          <img src="../static/7.png" alt="seventh">
+          <div class="text">In the calculation area, you can enter these variables to get more accurate result</div>
+        </div>
+        <!-- eighth image -->
+        <div class="mySlides">
+          <img src="../static/8.png" alt="eighth">
+          <div class="text">In change base map part, you can change the base map of this whole map</div>
+        </div>
+        
+
+
+        <!-- Next and previous buttons -->
+        <a class="prevPhoto" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="nextPhoto" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+
+      <br><br><br><br>
+
+  </div>
+
+
+
+
+
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+
+    </script>
+
+
+
   
 </body>
 
