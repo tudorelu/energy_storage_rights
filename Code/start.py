@@ -30,6 +30,7 @@ def calculate_wind_power_density():
         lon= float(request.json['lon'])
         lat= float(request.json['lat'])
         eff= float(request.json['ef'])
+        area= float(request.json['area'])
         # top:-8.923184
         # bottom:-43.958184
         # right:159.396449
@@ -39,10 +40,10 @@ def calculate_wind_power_density():
         column=int(((lon-112.618949)/(159.396449-112.618949))*aus_wind_np.shape[1])
         row=int(((-lat-8.923184)/(43.958184-8.923184))*aus_wind_np.shape[0])
         if aus_wind_np[row][column]>0:
-            wind_energy=str("{:.2f}".format(aus_wind_np[row][column]*eff/100))+" Wh/m^2 per day"
+            wind_energy=str("{:.2f}".format(aus_wind_np[row][column]*area*eff/100))+" Wh per day"
         else:
             wind_energy="No wind data available"
-        solar_energy=calculate_solar_energy(lat,lon,1,eff,1)
+        solar_energy=calculate_solar_energy(lat,lon,area,eff,1)
     return "wind: "+wind_energy+"\n"+"Solar: "+solar_energy
 #  E = A * r * H * PR
 # Where:
@@ -60,7 +61,7 @@ def calculate_solar_energy(lat,lon,m2,r,PR=1):
     # print(global_solar_np[row][column])
     if global_solar_np[row][column]>0:
         data=global_solar_np[row][column]
-        out=str("{:.2f}".format(float(data)*m2*r*PR/100))+" kWh per day for "+str(m2)+" meter square at "+str(r)+"%' efficiency"
+        out=str("{:.2f}".format(float(data)*m2*r*PR/100))+" kWh per day at "+str(r)+"%' efficiency"
     else: 
         out="No solar data available"
     return out

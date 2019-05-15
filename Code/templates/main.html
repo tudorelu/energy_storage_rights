@@ -7,14 +7,91 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
   <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
 
    <!-- side bar implement -->
 
    <style>
+    .selectDraw
+{ background-color: #ffffff;
+top: 70px; 
+left: 80px;
+height: 64px;
+width: 115px;
+position: fixed;
+}
+.btn {
+background-color: white;
+height: 40px;
+margin-left: -4px;
+border-radius: 0px;
+border: none;
+padding: 5px 15px;
+font-size: 14.5px;
+cursor: pointer;
+display: inline-block;
 
+}
+
+.btn:hover {background:lightgray;}
+
+.success {color: green;}
+.success .tooltiptext {
+top:45px;
+left: -50px;
+visibility: hidden;
+width: 120px;
+background-color: black;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px 0px;
+/* Position the tooltip */
+position:absolute;
+z-index: 1;
+}
+.success:hover .tooltiptext {
+visibility: visible;
+}
+
+.info {color: dodgerblue;}
+.info .tooltiptext {
+top:45px;
+left: -10px;
+visibility: hidden;
+width: 120px;
+background-color: black;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px 0;
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+}
+.info:hover .tooltiptext {
+visibility: visible;
+}
+.warning {color: red;}
+.warning .tooltiptext {
+top:45px;
+left: 30px;
+visibility: hidden;
+width: 120px;
+background-color: black;
+color: #fff;
+text-align: center;
+border-radius: 6px;
+padding: 5px 0;
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+}
+.warning:hover .tooltiptext {
+visibility: visible;
+}
 .box {
 position: absolute;
 left:30px; 
@@ -217,19 +294,18 @@ html, body, #viewDiv {
 <link rel="stylesheet" type="text/css" href="main.css">
 <script src="https://esrau.maps.arcgis.com/apps/Embed/index.html?webmap=b90567202ab649729c1b60e900f33048&extent=18.4297,-65.9323,180,18.6791&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></script> -->
 <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
-<link rel="stylesheet" type="text/css" href="main.css">
+<!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
 <script src="https://js.arcgis.com/4.11/"></script>
 
 <script>
+    drawselection=0;
+    polygonlist=[];
+    var lastpoint;
     require([
       "esri/Map",
       "esri/views/MapView",
-
       "esri/widgets/Search",
-
       "esri/layers/VectorTileLayer",
-
-      "esri/widgets/Sketch",
       "esri/layers/GraphicsLayer",
       "esri/layers/FeatureLayer",
       "esri/layers/TileLayer",
@@ -244,10 +320,10 @@ html, body, #viewDiv {
       "esri/symbols/SimpleFillSymbol"
 
 
-    ], function(Map, MapView, Search, VectorTileLayer, Sketch, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer,
+    ], function(Map, MapView, Search, VectorTileLayer, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer,
     Graphic, Point, SimpleMarkerSymbol,Polyline, SimpleLineSymbol,Polygon, SimpleFillSymbol) {
       const base_layer = new GraphicsLayer();
-
+      // 0 no selection,1 point selection, 2 polygon
       map = new Map({
         basemap: "topo-vector"
       });
@@ -301,47 +377,206 @@ html, body, #viewDiv {
       map.add(hydro_layer);
       hydro_layer.visible = false;
       hydro_layer.opacity=0.5;
-
-      // const fl = new FeatureLayer({
-      //   url: "https://tiles.arcgis.com/tiles/ryycKNjqBGg4M7N9/arcgis/rest/services/Wind_for_AU_NZ_ID_PNG_WTL1/MapServer/2a"
-      //   });
-      // map.add(fl);
-
-      // <style>
-      // .embed-container {
-      //   position: relative;
-      //   padding-bottom: 80%;
-      //   height: 0; max-width: 100%;}
-      // .embed-container iframe,
-      // .embed-container object,
-      // .embed-container iframe{
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 100%;}
-
-
-      // small{
-      //   position: absolute;
-      //   z-index: 40;
-      //   bottom: 0;
-      //   margin-bottom: -15px;}
-      // </style>
-      // <div class="embed-container">
-      //   <iframe width="500" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Solar Insolation Map Global"
-      //   src="//esrau.maps.arcgis.com/apps/Embed/index.html?webmap=2a38d472ceff42ceb5ea45a3dc29a878&extent=-180,-72.2486,180,72.9587&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light">
-      //   </iframe></div>
-
-      var view = new MapView({
+      view = new MapView({
         container: "viewDiv",
         map: map,
         center: [147.71511,-36.09042],
         zoom: 3
       });
+      
+      
+      var search = new Search({
+      view: view
+      });
+      view.constraints.minZoom=3;
+      var coordsWidget = document.createElement("div");
+      coordsWidget.id = "coordsWidget";
+      coordsWidget.className = "esri-widget esri-component";
+      coordsWidget.style.padding = "7px 15px 5px";
+
+      view.ui.add(coordsWidget, "bottom-right");
+
+      view.ui.add(search, "top-left");
+      view.on("double-click",function(evt){
+        drawpolygon();
+        drawselection=0;
+        showPopup2(get_polygon_centroid(polygonlist));
+      })
+
+      view.on("pointer-move", function(evt) {
+        if (drawselection==2){
+          drawline(view.toMap({ x: evt.x, y: evt.y }));
+          drawpartialpolygon();
+      }
+      });
+
+      view.on("click", function(evt){
+      search.clear();
+      view.popup.clear();
+      if (drawselection==2){
+        
+        lastpoint=[evt.mapPoint.longitude,evt.mapPoint.latitude];
+        polygonlist.push([evt.mapPoint.longitude,evt.mapPoint.latitude])
+        }
+      if (drawselection==1){
+        drawPoint(evt.mapPoint);
+        
+      }
+      // if (search.activeSource) {
+      //   var geocoder = search.activeSource.locator; // World geocode service
+      //   geocoder.locationToAddress(evt.mapPoint)
+      //     .then(function(response) { // Show the address found
+            
+      //       var address = response.address;
+      //       drawPoint(address, evt.mapPoint);
+            
+      //       // drawline(address, evt.mapPoint);
+      //       // drawPoint(address, evt.mapPoint);
+      //     }, function(err) { // Show no address found
+      //       showPopup("No address found.", evt.mapPoint);
+      //     });
+      // }
+    });
+
+    
+      
+    //   sketch.on("create", function(event) {
+    //   if (event.state === "complete") {
+
+    //     console.log(event.mapPoint.longitude);
+
+
+    //   }
+    // });
+    function drawpartialpolygon(){
+      for (i = 0; i < polygonlist.length-1; i++) { 
+        var polyline = new Polyline({
+         paths: [
+            polygonlist[i],
+            polygonlist[i+1]
+         ]
+       });
+
+       // Create a symbol for drawing the line
+       var lineSymbol = new SimpleLineSymbol({
+         color: [226, 119, 40],
+         width: 1
+       });
+
+       // Create a line graphic
+       var polylineGraphic = new Graphic({
+         geometry: polyline,
+         symbol: lineSymbol
+       })
+
+       // Add the graphic to the view
+       view.graphics.add(polylineGraphic);
+        }
+      
+    }
+    function ConvertToRadian(input)
+    {
+        return input * Math.PI / 180;
+    }
+    function calculatepolygonarea(coordinates){
+      var area;
+      area=0;
+      if (coordinates.length > 2)
+      {
+          for (var i = 0; i < coordinates.length - 1; i++)
+          {   
+            var p1;
+            var p2;
+              p1 = coordinates[i];
+              p2 = coordinates[i + 1];
+              area += ConvertToRadian(p2[0]- p1[0]) * (2 
+              +  Math.sin(ConvertToRadian(p1[1])) 
+              +Math.sin(ConvertToRadian(p2[1])));
+          }
+
+          area = area * 6378137 * 6378137 / 2;
+      }
+      return Math.abs(area);
+    }
+    function get_polygon_centroid(pts) {
+      if (pts.length>0){
+      var first = pts[0], last = pts[pts.length-1];
+      if (first[0] != last[0] || first[1] != last[1]) pts.push(first);
+      var twicearea=0,
+      x=0, y=0,
+      nPts = pts.length,
+      p1, p2, f;
+      for ( var i=0, j=nPts-1 ; i<nPts ; j=i++ ) {
+          p1 = pts[i]; p2 = pts[j];
+          f = (p1[1] - first[1]) * (p2[0] - first[0]) - (p2[1] - first[1]) * (p1[0] - first[0]);
+          twicearea += f;
+          x += (p1[0] + p2[0] - 2 * first[0]) * f;
+          y += (p1[1] + p2[1] - 2 * first[1]) * f;
+      }
+      f = twicearea * 3;
+      return [x/f + first[0], y/f + first[1]]
+      }
+    }
+    function drawpolygon(){
+      view.graphics.removeAll();
+      var polygon = new Polygon({
+        rings: polygonlist
+      });
+      
+      // Create a symbol for rendering the graphic
+      var fillSymbol = new SimpleFillSymbol({
+        color: [227, 139, 79, 0.8],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Add the geometry and symbol to a new graphic
+      var polygonGraphic = new Graphic({
+        geometry: polygon,
+        symbol: fillSymbol
+      });
+
+      // Add the graphic to the view
+      view.graphics.add(polygonGraphic);
+    }
+    function drawline(pt){
+      view.graphics.removeAll();
+      if (lastpoint==null) {
+        
+      } else{
+        var polyline = new Polyline({
+         paths: [
+            lastpoint,
+           [pt.longitude,pt.latitude]
+         ]
+       });
+
+       // Create a symbol for drawing the line
+       var lineSymbol = new SimpleLineSymbol({
+         color: [226, 119, 40],
+         width: 1
+       });
+
+       // Create a line graphic
+       var polylineGraphic = new Graphic({
+         geometry: polyline,
+         symbol: lineSymbol
+       })
+
+       // Add the graphic to the view
+       view.graphics.add(polylineGraphic);
+       
+       }
+      
+      
+    }
+    function drawPoint(pt){
+      view.graphics.removeAll();
       var point = new Point({
-        longitude: -118.29507,
-        latitude: 34.13501
+        longitude: pt.longitude,
+        latitude: pt.latitude
       });
 
       // Create a symbol for drawing the point
@@ -361,96 +596,34 @@ html, body, #viewDiv {
 
       // Add the graphic to the view
       view.graphics.add(pointGraphic);
-      var polyline = new Polyline({
-         paths: [
-           [-118.29026, 34.1816],
-           [-118.26451, 34.09664]
-         ]
-       });
+      showPopup3(pt);
+    }
+    // function drawPoint(address,pt){
+    //   view.graphics.removeAll();
+    //   var point = new Point({
+    //     longitude: pt.longitude,
+    //     latitude: pt.latitude
+    //   });
 
-       // Create a symbol for drawing the line
-       var lineSymbol = new SimpleLineSymbol({
-         color: [226, 119, 40],
-         width: 4
-       });
+    //   // Create a symbol for drawing the point
+    //   var markerSymbol = new SimpleMarkerSymbol({
+    //     color: [226, 119, 40],
+    //     outline: {
+    //       color: [255, 255, 255],
+    //       width: 1
+    //     }
+    //   });
 
-       // Create a line graphic
-       var polylineGraphic = new Graphic({
-         geometry: polyline,
-         symbol: lineSymbol
-       })
+    //   // Create a graphic and add the geometry and symbol to it
+    //   var pointGraphic = new Graphic({
+    //     geometry: point,
+    //     symbol: markerSymbol
+    //   });
 
-       // Add the graphic to the view
-       view.graphics.add(polylineGraphic);
-      var polygon = new Polygon({
-        rings: [
-          [-118.27653, 34.15121],
-          [-118.2446, 34.15462],
-          [-118.22915, 34.14439],
-          [-118.23327, 34.12279],
-          [-118.25318, 34.10972],
-          [-118.26486, 34.11625],
-          [-118.27653, 34.15121]
-        ]
-      });
-
-      // Create a symbol for rendering the graphic
-      var fillSymbol = new SimpleFillSymbol({
-        color: [227, 139, 79, 0.8],
-        outline: {
-          color: [255, 255, 255],
-          width: 1
-        }
-      });
-
-      // Add the geometry and symbol to a new graphic
-      var polygonGraphic = new Graphic({
-        geometry: polygon,
-        symbol: fillSymbol
-      });
-
-      // Add the graphic to the view
-      view.graphics.add(polygonGraphic);
-      var search = new Search({
-      view: view
-      });
-
-      const sketch = new Sketch({
-        layer: base_layer,
-        view: view
-        });
-
-      view.ui.add(sketch, "bottom-left");
-
-      view.ui.add(search, "top-left");
-
-      view.on("click", function(evt){
-      search.clear();
-      view.popup.clear();
-      if (search.activeSource) {
-        var geocoder = search.activeSource.locator; // World geocode service
-        geocoder.locationToAddress(evt.mapPoint)
-          .then(function(response) { // Show the address found
-            var address = response.address;
-            showPopup(address, evt.mapPoint);
-          }, function(err) { // Show no address found
-            showPopup("No address found.", evt.mapPoint);
-          });
-      }
-    });
-
-    
-      
-    //   sketch.on("create", function(event) {
-    //   if (event.state === "complete") {
-
-    //     console.log(event.mapPoint.longitude);
-
-
-    //   }
-    // });
-
-
+    //   // Add the graphic to the view
+    //   view.graphics.add(pointGraphic);
+    //   showPopup(address,pt);
+    // }
 
     efficiency = 100;
     area_value = 1;
@@ -461,21 +634,20 @@ html, body, #viewDiv {
     wind_e = 0;
     show_mode = 1;
     //1:wind , 2:solar
-
-    function showPopup(address, pt) {
+    function showPopup3(pt) {
     temp="";
-   
-    console.log(efficiency);
+    area_value=1;
+    document.getElementById("area_a").value=area_value
     fetch('/calculate_wind_power_density', {
-
     // Specify the method
     method: 'POST',
-
+    
     // A JSON payload
     body: JSON.stringify({
         "lon": pt.longitude,
         "lat": pt.latitude,
-        "ef" : efficiency
+        "ef" : efficiency,
+        "area" : 1,
     }),
     headers: { 'Content-type': 'application/json' }
     }).then(function (response) {
@@ -483,24 +655,24 @@ html, body, #viewDiv {
     }).then(function (text) {
         view.popup.open({
         title:  "Latitude: "+ Math.round(pt.latitude * 100000)/100000 + ", Longitude" + Math.round(pt.longitude * 100000)/100000,
-        content: text,
+        content: text + " Area: 1 M^2",
         location: pt
         });
         // temp=text; // Print the greeting as text
         
-      // console.log(parseFloat(text.split("Wh/m^2")[0].slice(6)))
+      // console.log(parseloat(text.split("Wh/m^2")[0].slice(6)))
       // console.log(parseFloat(text.split("Solar: ")[1].split("kwh")[0]))
 
-      wind_e = parseFloat(text.split("Wh/m^2")[0].slice(6));
-      solar_e = parseFloat(text.split("Solar: ")[1].split("kwh")[0])
+      wind_e = parseFloat(text.split("Wh")[0].slice(6));
+      solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
       if (show_mode ==1 ){
-          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
-          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
-          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
           document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
           document.getElementById("ROI").innerHTML = "ROI: TBD";
@@ -509,25 +681,57 @@ html, body, #viewDiv {
 
     });
   }
+    function showPopup2(pt) {
+    temp="";
+    area_value=calculatepolygonarea(polygonlist);
+    
+    document.getElementById("area_a").value=area_value
+    fetch('/calculate_wind_power_density', {
+    // Specify the method
+    method: 'POST',
 
-      // // Listen to sketch widget's create event.
-      // sketch.on("create", function(event) {
-      //   // check if the create event's state has changed to complete indicating
-      //   // the graphic create operation is completed.
-      //   if (event.state === "complete") {
-      //     // remove the graphic from the layer. Sketch adds
-      //     // the completed graphic to the layer by default.
-      //     polygonGraphicsLayer.remove(event.graphic);
+    // A JSON payload
+    body: JSON.stringify({
+        "lon": pt[0],
+        "lat": pt[1],
+        "ef" : efficiency,
+        "area" : area_value,
+    }),
+    headers: { 'Content-type': 'application/json' }
+    }).then(function (response) {
+        return response.text();
+    }).then(function (text) {
+        view.popup.open({
+        title:  "Latitude: "+ Math.round(pt[1] * 100000)/100000 + ", Longitude" + Math.round(pt[0] * 100000)/100000,
+        content: text + " Area of: "+calculatepolygonarea(polygonlist).toFixed(2) + " M^2",
+        location: pt
+        });
+        // temp=text; // Print the greeting as text
+        
+      // console.log(parseloat(text.split("Wh/m^2")[0].slice(6)))
+      // console.log(parseFloat(text.split("Solar: ")[1].split("kwh")[0]))
 
-      //     // use the graphic.geometry to query features that intersect it
-      //     selectFeatures(event.graphic.geometry);
-      //   }
-      // });
-
+      wind_e = parseFloat(text.split("Wh per")[0].slice(6));
+      solar_e = parseFloat(text.split("Solar: ")[1].split("kWh")[0])
+      if (show_mode ==1 ){
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          
+        }else{
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
+          document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
+          document.getElementById("ROI").innerHTML = "ROI: TBD";
+        }
 
 
     });
+  } 
 
+  
+    });
 
 
 
@@ -543,83 +747,90 @@ html, body, #viewDiv {
       <li> <a href="{{ url_for('contact') }}">Contact</a></li>
       <li> <a href="{{ url_for('about') }}">About</a></li>
     </ul>
-</div>
-<div style="height:50px;"></div>
-    <div id="viewDiv"> </div>
+  </div>
+  <div style="height:50px;"></div>
+      <div id="viewDiv"> </div>
+      <div class="selectDraw">
+          <h1 style="margin-left:-3px;background-color:#ffffff;width:108px;text-align: center">Select Area</h1>
+          <button class="btn success" onclick="changetopoint()">&#8226<span class="tooltiptext">1 wasedcnhyass</span></button>
+          <button class="btn info" onclick="changetopolygon()">&#9826;<span class="tooltiptext">2</span></button>
+          <button class="btn warning" onclick="changetonan()">&#10008<span class="tooltiptext">3</span></button>
+          </div>
   
-    <span style="font-size:20px;cursor:pointer;margin-top: 120px;
-    right:10px;
-    height: 50px;
-    width: 120px;
-    position: fixed;
-    z-index: 1;
-    top: -40px;
-    border-radius:10px;
-    background-color:rgba(255, 255, 255, 0.9);
-    padding: 10px;" onclick="openNav()">&#9776; open</span></div>
-
-    <div id="mySidenav" class="sidenav">
-
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-      <h1 style="font-size:25px; font-weight: bolder; color: lightblue; text-align: center;">Base Map</h1>
-      <br>
-      <div class="box" >
-          <select id="select_map" onclick="change_base_map()">
-          <option value="topo-vector">topo-vector</option>
-          <option value="satellite">satellite</option>
-          <option value="streets">streets</option>
-          <option value="streets-night-vector">streets-night-vector</option>
+      <span style="font-size:20px;cursor:pointer;margin-top: 120px;
+      right:10px;
+      height: 50px;
+      width: 120px;
+      position: fixed;
+      z-index: 1;
+      top: -40px;
+      border-radius:10px;
+      background-color:rgba(255, 255, 255, 0.9);
+      padding: 10px;" onclick="openNav()">&#9776; open</span></div>
+  
+      <div id="mySidenav" class="sidenav">
+  
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        <h1 style="font-size:25px; font-weight: bolder; color: lightblue; text-align: center;">Change Base Map</h1>
+        <br>
+        <div class="box" >
+            <select id="select_map" onclick="change_base_map()">
+            <option value="topo-vector">Topographic Map</option>
+            <option value="satellite">World Imagery map</option>
+            <option value="streets"> World Street Map</option>
+            <option value="streets-night-vector"> World Street Map (Night) </option>
+            
+            </select>
+        </div>
+            
+  
+  
+        <br><br>
+  
+       
+        <div style="color:rgb(255, 255, 255);background-color:rgba(11, 158, 238, 0.596);">
           
-          </select>
-      </div>
           
-
-
-      <br><br>
-
-     
-      <div style="color:rgb(255, 255, 255);background-color:rgba(11, 158, 238, 0.596);">
-        
-        
-
-        <form action="" method="get;" style="padding:10px; font-size:15px;">
-            <h3 style="font-size:20px; font-weight: bolder; color: lightblue; text-align: center;">CHOOSE ENERGY</h3>
-
-              <label onclick="change_to_solar()"><input style="margin:10px;" name="e" type="checkbox" id="solar_button" value="" />SOLAR </label> <br />
-              <label onclick="change_to_wind()"><input style="margin:10px;"name="e" type="checkbox" id="wind_button" value="" />WIND </label> <br />
-              <label onclick="change_to_water()"><input style="margin:10px;"  name="e" type="checkbox" id="water_button" value="" />WATER</label> <br />
-              <label onclick="change_to_energy()"><input style="margin:10px;"  name="e" type="checkbox" id="energy_button" value="" />Energy Grid</label> <br />
-              <label onclick="change_to_hydro()"><input style="margin:10px;"  name="e" type="checkbox" id="hydro_button" value="" />Hydro</label> <br />
-
-          </form>
-      </div>
+  
+          <form action="" method="get;" style="padding:10px; font-size:15px;">
+              <h3 style="font-size:20px; font-weight: bolder; color: lightblue; text-align: center;">CHOOSE ENERGY</h3>
+            <div style="display: inline">
+                <label onclick="change_to_solar()"><input style="margin:10px;" name="e" type="checkbox" id="solar_button" value="" />SOLAR </label> 
+                <label onclick="change_to_wind()"><input style="margin:10px;"name="e" type="checkbox" id="wind_button" value="" />WIND </label> 
+                <label onclick="change_to_water()"><input style="margin:10px;"  name="e" type="checkbox" id="water_button" value="" />WATER</label> <br />
+           </div>    
+                <label onclick="change_to_energy()"><input style="margin:10px;"  name="e" type="checkbox" id="energy_button" value="" />Energy Grid</label> 
+                <label onclick="change_to_hydro()"><input style="margin:10px;"  name="e" type="checkbox" id="hydro_button" value="" />Hydro</label> <br />
+  
+            </form>
+        </div>
 
       <br><br>
     
-      <div  style="background:#c7c7c7;padding-bottom: 20px ">
-          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-              Efficiency:    <textarea style="margin-top:20px " rows="1" cols="5"id="effi" wrap="soft">100</textarea>% 
+      <div style="background:#c7c7c7;padding-bottom: 45px;padding-left:20px ">
+          <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+          Efficiency: <input type="text" style="margin-top:20px; width:35px;height:25px;" rows="1" cols="5"id="effi" wrap="soft" value="100"></input>% 
           </p >
-          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-              Area :    <textarea style="margin-top:20px" rows="1" cols="5"id="area_a" wrap="soft">1</textarea>m^2
+          <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+          Area : <input type="text" style="margin-top:20px; width:170px;height:25px;" rows="1" cols="5"id="area_a" wrap="soft" value="1"></input>m^2
           </p >
-          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-              Cost :    <textarea style="margin-top:20px " rows="1" cols="5"id="cost_c" wrap="soft">10000</textarea>$/m^2
+          <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+          Cost : <input type="text" style="margin-top:20px; width:120px;height:25px;" rows="1" cols="5"id="cost_c" wrap="soft" value="10000"></input>$/m^2
           </p >
-          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-              Price of energy :    <textarea style="margin-top:20px " rows="1" cols="5"id="poe_p" wrap="soft">0.23</textarea>$/kWh
+          <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+          Price of energy : <input type="text" style="margin-top:20px; width:60px;height:25px;" rows="1" cols="5"id="poe_p" wrap="soft" value="0.23"></input>$/kWh
           </p >
-          <p style="background:#c7c7c7  ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
-              Year of investment :    <textarea style="margin-top:20px " rows="1" cols="5"id="year_y" wrap="soft">5</textarea>
+          <p style="background:#c7c7c7 ;font-weight:10;font-size:16px; color:#818181;padding:15px;padding-left:30px;margin-left:-20px;margin-top: -48px ">
+          Year of investment : <input type="text" style="margin-top:20px; width:30px;height:25px;" rows="1" cols="5"id="year_y" wrap="soft" value = "5"></input>
           </p >
-      </div>
-      <div style="width:80px;overflow:hidden;background:#e7e7e7;padding:10px;margin-top:-180px;margin-left:200px">
+          </div>
+          <div style="width:80px;overflow:hidden;background:#e7e7e7;padding:8px;margin-top:-50px;margin-left:100px;border-radius: 5px;">
           <button id="myBtn" value="myvalue" onclick="getNum()">Calculate</button>
-      </div>
-      
-      <div class="option" style=" background-color:rgba(201, 225, 238);height:100px;margin-top:120px;margin-bottom:20px;
-      width:303px;padding-left:10px;text-align: center;padding:5px 5px;">
+          </div>
+          <div class="option" style=" background-color:rgba(201, 225, 238);height:100px;margin-top:10px;margin-bottom:20px;
+          width:303px;padding-left:10px;text-align: center;padding:5px 5px;">
+          
 
       <div class="sbutton" >
           <ul>
@@ -631,19 +842,19 @@ html, body, #viewDiv {
     </div>
 
     <div >
-        <p id="energy_show" style="background:#c7c7c7 ;font-weight:30;font-size: 15px; color:#818181;padding: 35px;margin-left:-20px;margin-top: -20px ">Annual Wind output
+        <p id="energy_show" style="background:#c7c7c7 ;font-weight:30;font-size: 20px; color:#818181;padding: 35px;margin-left:-20px;margin-top: -20px ">Annual Wind output
     </div>
 
     <div >
-        <p id="Annual_profit"style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+        <p id="Annual_profit"style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
             Annual profit
     </div>
     <div >
-        <p  id="Net_profit" style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+        <p  id="Net_profit" style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
             Net profit
     </div>
     <div >
-        <p  id="ROI" style="background:#a1a1a1 ;font-weight:30;font-size: 15px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+        <p  id="ROI" style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
             ROI
     </div>
     </div>
@@ -657,6 +868,24 @@ html, body, #viewDiv {
      
 
       <script>
+        function changetopoint(){
+      drawselection=1;
+      clearall();
+    }
+    function changetopolygon(){
+      drawselection=2;
+      clearall();
+    }
+    function changetonan(){
+      drawselection=0;
+      clearall();
+    }
+    function clearall(){
+      lastpoint=null;
+      polygonlist=[];
+      view.graphics.removeAll();
+      view.popup.close();
+    }
       function change_base_map(){
         var x = document.getElementById("select_map").value;
         map.basemap = x;
@@ -672,18 +901,17 @@ html, body, #viewDiv {
       }
 
       function toSolarMode(){
-        console.log("toso")
         show_mode = 2;
         document.getElementById("solar_m").class="active";
         document.getElementById("wind_m").class="";
         if (show_mode ==1 ){
-          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
-          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
-          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
           document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
           document.getElementById("ROI").innerHTML = "ROI: TBD";
@@ -692,18 +920,17 @@ html, body, #viewDiv {
       }
 
       function toWindMode(){
-        console.log("towin")
         show_mode = 1;
         document.getElementById("solar_m").class="";
         document.getElementById("wind_m").class="active";
         if (show_mode ==1 ){
-          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
-          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
-          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e  * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
           document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
           document.getElementById("ROI").innerHTML = "ROI: TBD";
@@ -714,6 +941,7 @@ html, body, #viewDiv {
 
           
       function getNum() {
+        
         var x = document.getElementById("effi").value;
         var y = document.getElementById("area_a").value;
         var z = document.getElementById("cost_c").value;
@@ -724,19 +952,19 @@ html, body, #viewDiv {
         document.getElementById("energy_show").innerHTML = "please enter a number";
         }else {
         efficiency = x;
-        area_value= y
         if (show_mode ==1 ){
-          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * area_value * 24 * 365 /1000).toFixed(4)+ " KWh/m^2";
-          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * area_value * 24 * 365*poe/1000).toFixed(4)+ " dollars";
-          document.getElementById("Net_profit").innerHTML = "Net profit: " + ((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value).toFixed(4)+ " dollars";
-          document.getElementById("ROI").innerHTML = "ROI: " + (((wind_e * area_value * 24 * 365*poe/1000-48.89*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
+          document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + ((wind_e*y/area_value) * 24 * 365 /1000).toFixed(4)+ " KWh";
+          document.getElementById("Annual_profit").innerHTML = "Annual profit: " + ((wind_e*y/area_value) * 24 * 365*poe/1000).toFixed(4)+ " dollars";
+          document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e*y/area_value)  * 24 * 365*poe/1000-48.89*y)*year-cost_value*y).toFixed(4)+ " dollars";
+          document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e*y/area_value) * 24 * 365*poe/1000-48.89*y)*year-cost_value*y)*100/(cost_value*y)).toFixed(4)+ "%";
           
         }else{
-          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e * area_value * 365).toFixed(4)+ " Kwh/m^2";
+          document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: TBD" ;
           document.getElementById("Net_profit").innerHTML = "Net profit: TBD";
           document.getElementById("ROI").innerHTML = "ROI: TBD";
         }
+        area_value= y;
 
 
         }
