@@ -16,7 +16,7 @@ Download **"Australia wind.tif"** and **"GHI.tif"**, save them into **/Code/data
 However, if you are not interested in doing analysis on the data and only want to have a look at the color map, you can stop here. Notes that the initial loading and visualizing could take sometimes.
 
 ### 4 Start the website from Flask
-Navigate your terminal into /Code/ and run the Python file "start.py"
+Navigate your terminal into /Code/ and run the Python file **"start.py"**
 If you are working in a Windows system.It is possible that you are missing some libarary to run the Python file. Here are some tips in installing some libararies.
 **No module name "gdal"**: We found that installing of GDAL are often troublesome when using Pip install. Therefore, we advised to install using the wheel we provided in /Code/ folder named "GDAL-2.4.1-cp37-cp37m-win_amd64.whl", you can then run **"pip install GDAL-2.4.1-cp37-cp37m-win_amd64.whl"** in /Code/ folder if you are using Python version 3.7. Or if you are working on different python version, you should find yourself a installation package here: https://www.lfd.uci.edu/~gohlke/pythonlibs/#gdal
 
