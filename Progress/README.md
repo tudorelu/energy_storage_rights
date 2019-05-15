@@ -20,5 +20,5 @@ Our progress timeline
 # ![image](9.png)
 ## Extracting data from files through python
 # ![image](10.png)
-## Perfrom and apply various algorithm on the calculation
+## Perform and apply various algorithm on the calculation
 # ![image](11.png)
