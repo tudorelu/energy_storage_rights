@@ -234,10 +234,18 @@ html, body, #viewDiv {
       "esri/layers/FeatureLayer",
       "esri/layers/TileLayer",
       "esri/layers/WMTSLayer",
-      "esri/layers/WMSLayer"
+      "esri/layers/WMSLayer",
+      "esri/Graphic",
+      "esri/geometry/Point",
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/geometry/Polyline",
+      "esri/symbols/SimpleLineSymbol",
+      "esri/geometry/Polygon",
+      "esri/symbols/SimpleFillSymbol"
 
 
-    ], function(Map, MapView, Search, VectorTileLayer, Sketch, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer) {
+    ], function(Map, MapView, Search, VectorTileLayer, Sketch, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer,
+    Graphic, Point, SimpleMarkerSymbol,Polyline, SimpleLineSymbol,Polygon, SimpleFillSymbol) {
       const base_layer = new GraphicsLayer();
 
       map = new Map({
@@ -331,7 +339,78 @@ html, body, #viewDiv {
         center: [147.71511,-36.09042],
         zoom: 3
       });
+      var point = new Point({
+        longitude: -118.29507,
+        latitude: 34.13501
+      });
 
+      // Create a symbol for drawing the point
+      var markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Create a graphic and add the geometry and symbol to it
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      // Add the graphic to the view
+      view.graphics.add(pointGraphic);
+      var polyline = new Polyline({
+         paths: [
+           [-118.29026, 34.1816],
+           [-118.26451, 34.09664]
+         ]
+       });
+
+       // Create a symbol for drawing the line
+       var lineSymbol = new SimpleLineSymbol({
+         color: [226, 119, 40],
+         width: 4
+       });
+
+       // Create a line graphic
+       var polylineGraphic = new Graphic({
+         geometry: polyline,
+         symbol: lineSymbol
+       })
+
+       // Add the graphic to the view
+       view.graphics.add(polylineGraphic);
+      var polygon = new Polygon({
+        rings: [
+          [-118.27653, 34.15121],
+          [-118.2446, 34.15462],
+          [-118.22915, 34.14439],
+          [-118.23327, 34.12279],
+          [-118.25318, 34.10972],
+          [-118.26486, 34.11625],
+          [-118.27653, 34.15121]
+        ]
+      });
+
+      // Create a symbol for rendering the graphic
+      var fillSymbol = new SimpleFillSymbol({
+        color: [227, 139, 79, 0.8],
+        outline: {
+          color: [255, 255, 255],
+          width: 1
+        }
+      });
+
+      // Add the geometry and symbol to a new graphic
+      var polygonGraphic = new Graphic({
+        geometry: polygon,
+        symbol: fillSymbol
+      });
+
+      // Add the graphic to the view
+      view.graphics.add(polygonGraphic);
       var search = new Search({
       view: view
       });
@@ -360,7 +439,8 @@ html, body, #viewDiv {
       }
     });
 
-
+    
+      
     //   sketch.on("create", function(event) {
     //   if (event.state === "complete") {
 
