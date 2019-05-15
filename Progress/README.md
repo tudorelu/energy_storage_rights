@@ -1,5 +1,6 @@
 Our progress timeline
 =================
+# Audit 2
 ## Implement Mapbox map engine in our website
 # ![image](1.png)
 ## Design a user interface and a side bar for data display purposes
@@ -10,6 +11,7 @@ Our progress timeline
 # ![image](4.png)
 ## Implement Arcgis map engine in our website
 # ![image](5.png)
+# Audit 3
 ## Visualize mutiple data in our website
 # ![image](6.png)
 ## Create a widget that allow to draw polygon in our map
@@ -20,5 +22,5 @@ Our progress timeline
 # ![image](9.png)
 ## Extracting data from files through python
 # ![image](10.png)
-## Perfrom and apply various algorithm on the calculation
+## Perform and apply various algorithm on the calculation
 # ![image](11.png)
