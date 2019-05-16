@@ -2,7 +2,7 @@
 <html lang='en'>
 
 <head>
-  <title>ENERGY STORAGE</title>
+  <title>ENERGY STORAGE RIGHTS</title>
 
 
   <meta charset="utf-8">
@@ -317,11 +317,12 @@ html, body, #viewDiv {
       "esri/geometry/Polyline",
       "esri/symbols/SimpleLineSymbol",
       "esri/geometry/Polygon",
-      "esri/symbols/SimpleFillSymbol"
+      "esri/symbols/SimpleFillSymbol",
+      "esri/widgets/Legend"
 
 
     ], function(Map, MapView, Search, VectorTileLayer, GraphicsLayer, FeatureLayer, TileLayer, WMTSLayer, WMSLayer,
-    Graphic, Point, SimpleMarkerSymbol,Polyline, SimpleLineSymbol,Polygon, SimpleFillSymbol) {
+    Graphic, Point, SimpleMarkerSymbol,Polyline, SimpleLineSymbol,Polygon, SimpleFillSymbol,Legend) {
       const base_layer = new GraphicsLayer();
       // 0 no selection,1 point selection, 2 polygon
       map = new Map({
@@ -333,6 +334,7 @@ html, body, #viewDiv {
       wind_layer = new TileLayer({
           url: "https://tiles.arcgis.com/tiles/Lhhlijt6OxVvJhC4/arcgis/rest/services/Wind_tile/MapServer"
       });
+      
 
       map.add(wind_layer);
       wind_layer.visible = false;
@@ -383,7 +385,6 @@ html, body, #viewDiv {
         center: [147.71511,-36.09042],
         zoom: 3
       });
-      
       
       var search = new Search({
       view: view
