@@ -40,7 +40,7 @@ def calculate_wind_power_density():
         column=int(((lon-112.618949)/(159.396449-112.618949))*aus_wind_np.shape[1])
         row=int(((-lat-8.923184)/(43.958184-8.923184))*aus_wind_np.shape[0])
         if aus_wind_np[row][column]>0:
-            wind_energy=str("{:.2f}".format(aus_wind_np[row][column]*area*eff/100))+" Wh per day"
+            wind_energy=str("{:.2f}".format(aus_wind_np[row][column]*1*eff/100))+" Wh per day"
         else:
             wind_energy="No wind data available"
         solar_energy=calculate_solar_energy(lat,lon,area,eff,1)
