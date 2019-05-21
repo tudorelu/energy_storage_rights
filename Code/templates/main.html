@@ -657,11 +657,14 @@ html, body, #viewDiv {
       if (show_mode ==1 ){
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000).toFixed(4)+ " AUD";
+          
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine)).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine))*100/(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine))).toFixed(4)+ "%";
         }else{
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365*panel_capacity/1000).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*panel_capacity*poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(0.4*panel_capacity*area_value).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value)*100/(0.4*panel_capacity*area_value)).toFixed(4)+ "%";
         }
@@ -715,14 +718,17 @@ html, body, #viewDiv {
         content: "Solar: "+solar_e +" Kwh for "+area_value+" M^2 Wind:"+wind_e+" W/M^2 for "+number_of_wind_turbine+" wind turbine size of "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine)+" M^2",
         location: pt
         });
-      if (show_mode ==1 ){
+        if (show_mode ==1 ){
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000).toFixed(4)+ " AUD";
+          
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine)).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine))*100/(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine))).toFixed(4)+ "%";
         }else{
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365*panel_capacity/1000).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*panel_capacity*poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(0.4*panel_capacity*area_value).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value)*100/(0.4*panel_capacity*area_value)).toFixed(4)+ "%";
         }
@@ -836,9 +842,13 @@ html, body, #viewDiv {
     </div>
 
     <div >
-        <p id="Annual_profit"style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
-            Annual profit
-    </div>
+      <p id="Annual_profit"style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+          Annual profit
+  </div>
+  <div >
+    <p id="total_cost"style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
+        Total Cost
+</div>
     <div >
         <p  id="Net_profit" style="background:#a1a1a1 ;font-weight:30;font-size: 20px; color:#dfdbdb;padding: 35px;margin-left:-20px;margin-top: -5px ">
             Net profit
@@ -922,6 +932,7 @@ html, body, #viewDiv {
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: ";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " ;
           document.getElementById("Net_profit").innerHTML = "Net profit: ";
+          document.getElementById("total_cost").innerHTML = "Total Cost: ";
           document.getElementById("ROI").innerHTML = "ROI: " ;
           
         }else{
@@ -944,6 +955,7 @@ html, body, #viewDiv {
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: ";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " ;
           document.getElementById("Net_profit").innerHTML = "Net profit: ";
+          document.getElementById("total_cost").innerHTML = "Total Cost: ";
           document.getElementById("ROI").innerHTML = "ROI: " ;
     }
   }
@@ -989,6 +1001,7 @@ html, body, #viewDiv {
           
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365*panel_capacity/1000).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*panel_capacity*poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+0.4*panel_capacity*area_value;
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-0.4*panel_capacity*area_value)*100/(0.4*panel_capacity*area_value)).toFixed(4)+ "%";
         
@@ -1017,6 +1030,7 @@ html, body, #viewDiv {
         
         document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 /1000).toFixed(4)+ " KWh";
         document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine));
         document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
         document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine))*100/(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine))).toFixed(4)+ "%";
         }
@@ -1072,11 +1086,13 @@ html, body, #viewDiv {
       if (show_mode ==1 ){
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine))*100/(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine))).toFixed(4)+ "%";
         }else{
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365*panel_capacity/1000).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*panel_capacity*poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(cost_value*area_value).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-cost_value*area_value).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
         }
@@ -1105,14 +1121,16 @@ html, body, #viewDiv {
         location: calculationpoint
         });
 
-      if (show_mode ==1 ){
+        if (show_mode ==1 ){
           document.getElementById("energy_show").innerHTML = "Annual wind energy output: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 /1000).toFixed(4)+ " KWh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + (((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine)).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + ((((wind_e * Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine* 365 *poe/1000-71.11*area_value))*year-Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value-(equipment_cost*number_of_wind_turbine))*100/(Math.PI*radius_of_wind_turbine*radius_of_wind_turbine*number_of_wind_turbine*cost_value+(equipment_cost*number_of_wind_turbine))).toFixed(4)+ "%";
         }else{
           document.getElementById("energy_show").innerHTML = "Annual Solar energy output: " + (solar_e  * 365*panel_capacity/1000).toFixed(4)+ " Kwh";
           document.getElementById("Annual_profit").innerHTML = "Annual profit: " + (solar_e* 365*panel_capacity*poe/1000).toFixed(4)+ " AUD";
+          document.getElementById("total_cost").innerHTML = "Total Cost: "+(cost_value*area_value).toFixed(4)+" AUD";
           document.getElementById("Net_profit").innerHTML = "Net profit: " + ((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-cost_value*area_value).toFixed(4)+ " AUD";
           document.getElementById("ROI").innerHTML = "ROI: " + (((solar_e* 365*panel_capacity*poe/1000-8*area_value)*year-cost_value*area_value)*100/(cost_value*area_value)).toFixed(4)+ "%";
         }
