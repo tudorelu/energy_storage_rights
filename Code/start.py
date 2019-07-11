@@ -72,7 +72,8 @@ def getcolrow(lon,lat,top,bottom,right,left,nparr):
     
     return (row,column)
 if __name__ == '__main__':
-    Image.MAX_IMAGE_PIXELS = 262215954 
+    # 262215954
+    Image.MAX_IMAGE_PIXELS = 500000000
     print("Loading Australia wind data")
     aus_wind = Image.open('data/Australia wind.tif')
     aus_wind_np=np.array(aus_wind)
