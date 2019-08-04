@@ -130,7 +130,6 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 ## Work allocation
 |Role|Principle|Vice|Assistant|
 |--------|------|--------|--------|
-|Role|Principle|Vice|Assistant|
 |Project Manager|Yuanxin Ye|
 |Spokesman|Yuanxin Ye | Yufei Qian|Yunyuan Yu|
 |Recorder|Weiwei Liang |Yufei Qian|Yuanxin Ye|
