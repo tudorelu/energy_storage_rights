@@ -144,8 +144,19 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
 
 ## Link to our other resources
-Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs <br/>
-Trello page: https://trello.com/b/A7bMM3s1/energy-storage-rights
+[Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
+[Meeting Agendas]( https://drive.google.com/drive/folders/1ruHMGQEwZx8xxoOjOGPwa9xU5NgL7rAN  )<br/>
+[Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
+[Data Research](https://drive.google.com/drive/folders/1ouNpwJ68z57oJTDXcNoi7cSna5wYiK6W  )<br/>
+[Data Collection]( https://drive.google.com/drive/folders/1mtH_evyiBC0kgZiA23ROwWvUPP2KmC6z  )<br/>
+[Decision Log]( https://drive.google.com/drive/folders/1CEMSQgAogMe8vQJReyoHRvSMf1Q6JC9H  )<br/>
+[Reflection](https://drive.google.com/drive/folders/1XsYDRaATwrU3pg5XVH8vvCI1uunZui_c  )<br/>
+[Risk Register]( https://drive.google.com/drive/folders/1cQ4A8ppLE5xk9f_Fk1UyjdJrg7GF1jlN  )<br/>
+[Stakeholder analysis]( https://drive.google.com/drive/folders/10gsUFsP6mTIeGsW1DiLlHAU1DYdazl2U  )<br/>
+[Test Case]( https://drive.google.com/drive/folders/1mXzHyvk3NEHUHc-ea4OYsFEOOUlcOTlA  )<br/>
+[Work Log]( https://drive.google.com/drive/folders/1MQU0xjfCFbGTKCB5QzTTYm8QJPny00xG  )<br/>
+[Trello page]( https://trello.com/b/A7bMM3s1/energy-storage-rights  )<br/>
+[Semester 1 Document]( https://drive.google.com/drive/folders/1BD-qphvc1mOOeRAqcmFgobbKJgBE7TIh  )<br/>
 
 ## Other Readme resources
 ### Master Branch
