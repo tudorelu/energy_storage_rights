@@ -10,7 +10,7 @@ Table of Contents
   * [The potential of the project](#The-potential-of-the_project)
   * [Acknowledgement](#Acknowledgement)
   * [Work allocation](#work-allocation)
-  * [Link to our other resources](#Link-to-our-other-resources)
+  * [Link to Documentation](#Link-to-Documentation)
   * [Other Readme resources](#Other-Readme-resources)
    
 
@@ -119,7 +119,7 @@ Our final product is desired to have some other functions. The application shoul
 On the other hand, the application should be able to select a combination of different technologies where it yields most energy output.
 
 ## Milestones
-Refer to [Gantt_project_planner.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Gantt_project_planner.xlsx) above
+Refer to [Gantt Chart](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/Gantt%20Chart.xlsx)
 
 ## The potential of the project
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
@@ -143,7 +143,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Front-end: Web Host implementation Developer|Daiwei Zhang|PeilinSong|Yunyuan Yu, Daoyu Li|
 |Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
 
-## Link to our other resources
+## Link to Documentation
 [Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
 [Meeting Agendas]( https://drive.google.com/drive/folders/1ruHMGQEwZx8xxoOjOGPwa9xU5NgL7rAN  )<br/>
 [Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
@@ -156,12 +156,11 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 [Test Case]( https://drive.google.com/drive/folders/1mXzHyvk3NEHUHc-ea4OYsFEOOUlcOTlA  )<br/>
 [Work Log]( https://drive.google.com/drive/folders/1MQU0xjfCFbGTKCB5QzTTYm8QJPny00xG  )<br/>
 [Trello page]( https://trello.com/b/A7bMM3s1/energy-storage-rights  )<br/>
-[Semester 1 Document]( https://drive.google.com/drive/folders/1BD-qphvc1mOOeRAqcmFgobbKJgBE7TIh  )<br/>
 
 ## Other Readme resources
 ### Master Branch
 [Master](https://github.com/tudorelu/energy_storage_rights)<br />
-[Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Algorithm%20Documents)<br />
+[Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Documents/Algorithm%20Documents)<br />
 [Code](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)<br />
 [Code/Testing](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm)<br />
 [Code/data](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data)<br />
