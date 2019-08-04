@@ -119,7 +119,7 @@ Our final product is desired to have some other functions. The application shoul
 On the other hand, the application should be able to select a combination of different technologies where it yields most energy output.
 
 ## Milestones
-Refer to [Gantt Chart](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/Gantt_project_planner.xlsx)
+Refer to [Gantt Chart](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/Gantt Chart.xlsx)
 
 ## The potential of the project
 Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
