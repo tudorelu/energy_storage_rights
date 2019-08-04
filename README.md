@@ -20,9 +20,9 @@ Table of Contents
 We are currently undergoing the development of our second deliverable. We have developed a website that can visualize Solar irradiation, Water occurrence, Windpower density, Possible site for Pumped Hydro, and the distance to energy grid node in Australia. Also, our website has the abilities to do data analysis by identifying the possible energy output at the point of interest (for wind and solar for now), determined the possible annual power output, and calculate the return of investment (ROI). However, there is still plenty of room for us to improve on our calculation as we realized there are many factors that can affect the outcome. Moreover, the user can draw the specific shape in the map using our sketch widget, this can be used for selecting the user-desired area for evaluation. We use our Web branch to explore possibilities during development while the master branch consists of all the final works that are aligned with our deliverable. The next phase of the development will be mainly focused on developing the algorithm for calculating ROI and further develop on the area selection function. The instruction on how to run our website can be found [here](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)
 
 ## Introduction
-Deployment of renewable energy technologies in different location are often comes with advantage and disadvantage. The energy storage rights is a digital platform that will map, evaluate, promote and help investments in the development rights for energy storage pilot projects such as pumped hydro energy storage, floating solar pilots on lake or sea. Alongside with the platform is energy storage rights application.
+Deployment of renewable energy technologies in a different location often comes with advantage and disadvantage. The energy storage rights is a digital platform that will map, evaluate, promote and help investments in the development rights for energy storage pilot projects such as pumped hydro energy storage, floating solar pilots on lake or sea. Alongside with the platform is energy storage rights application.
 
-We strike to built up an application which used to evaluate and optimize the performance and potential of location viable for development of different renewable-energy technologies, this outcome will then be visualized to the target user. 
+We strike to build up an application which used to evaluate and optimize the performance and potential of location viable for development of different renewable-energy technologies, this outcome will then be visualized to the target user.
 
 Through our development on this project, we use Google drive for documentation purposes and data storage. Trello for task management and assignment. The links can be found in [Link to our other resources](#Link-to-our-other-resources).
 
@@ -58,9 +58,9 @@ Solar energy: Global horizontal irradiation, Optimum tilt to maximize yearly yie
 Wind energy: Wind direction, Wind power density at different height
 Water energy: The depth of lake, occurence of water, potential sites for pumped hydro
 * **Energy grid data is implemented**<br />
-Display energy grid on map and their distances between each other. The visualization should tell the distance from energy grid line ( electricity transmission line) to the point of interest. This can be use to future calculation of the cost that required to implement various renewable technologies.
+Display energy grid on the map and their distances between each other. The visualization should tell the distance from the energy grid line ( electricity transmission line) to the point of interest. This can be used to future calculation of the cost required to implement various renewable technologies.
 * **Calculate the user selected area**<br />
-The user will be able to selecte area that they are interest to develop renewable technologies. The shape can be in polygon or rectangle. Our application should be able to measure the size of the area and output the estimated potential energy generation and its return for each renewable energy in details. 
+The user will be able to select the area that they are interesting to develop renewable technologies. The shape can be in polygon or rectangle. Our application should be able to measure the size of the area and output the estimated potential energy generation and its return for each renewable energy in details. 
 * **Calculate the potential return of development**<br />
 This include calculate annual power output, annual profit, net profit, and return of investment. The calculation is basic calculation that should be further improved in later development.
 * **Calculate the estimated gross return of energy storage installation.**<br />
@@ -90,7 +90,7 @@ Refine the design on side bar to be more professional.
 Given that our local data is big and is not compatible with many devices. Therefore, a faster way should be considered and implemented to allow the data can be read and process from every computer. <br />
 The solution should be: <br />
 -Allow the data to be read by every computer <br />
--Allow the data to be preprocess in a more efficient way. <br />
+-Allow the data to be preprocessed  in a more efficient way. <br />
 * **Research on alternative algorithm for energy calculation**<br />
 Explore on other algorithm that can be used for calculation to determine the pros and cons of each algorithm.
 * **Research and implement on algorithm of implementation cost of renewable energy facility**<br />
@@ -109,20 +109,20 @@ Web hosting is a server where websites stored. Some features to consider: Server
 * **Handover documentation.**<br />
 ##### Front-end: 
 * **ML model to predict energy output where incomplete data is presented**<br />
-Select and train ML model where it can predict the potential energy output where there is little, or no data given. Select and compare to choose a suitable model where it can predict with highest accuracy. <br />
--	For example, when predicting solar energy output in a given point, a potential output is given where the solar irradiation data is presented by default. When there is no available data for solar irradiation, the model should predict the solar irradiation value base on the data such as temperature where it is widely available.<br />
--	The model performance should be measure by accuracy, the accuracy measurement method will be decided later when we use different models. Some possible measure method includes Mean Squared Error, F1 score, and absolute difference. 
+Select and train the ML model where it can predict the potential energy output where there is little or no data are given. Select and compare to choose a suitable model where it can predict with the highest accuracy. <br />
+-    For example, when predicting solar energy output in a given point, potential output is given where the solar irradiation data is presented by default. When there is no available data for solar irradiation, the model should predict the solar irradiation value base on the data such as temperature where it is widely available.<br />
+-    The model performance should be measured by accuracy, the accuracy measurement method will be decided later when we use different models. Some possible measure method includes Mean Squared Error, F1 score, and absolute difference. 
 
 
 ## Desired Features
-Our final product is desired to have some other functions.The application should be able to identify the top N locations that is suitable for development in a relative large area. To rank different locations, we will continue to use the return of investment as the parameter.<br />
-On the other hand, the application should be able to select a combination of different technologies where it yield most energy output.
+Our final product is desired to have some other functions. The application should be able to identify the top N locations that are suitable for development in a relatively large area. To rank different locations, we will continue to use the return of investment as the parameter.<br />
+On the other hand, the application should be able to select a combination of different technologies where it yields most energy output.
 
 ## Milestones
 Refer to [Gantt_project_planner.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Gantt_project_planner.xlsx) above
 
 ## The potential of the project
-Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allow to generate more interaction between the property owner and renewable energy developer. Land owner can be benefit from this application by making more effective and smart decision on the use of renewable energy product, it also help them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to delop their products. This application is expected to create a win-win situation between each parties.
+Many potential users are interested in renewable energy, our application can help to identify the high potential area for developing renewable energy. This allows for generating more interaction between the property owner and the renewable energy developer. The landowner can benefit from this application by making a more effective and smart decision on the use of renewable energy product, it also helps them to reduce the spending in energy, increase in efficiency in energy storage. For the renewable energy developer, it grants them more opportunity to develop their products. This application is expected to create a win-win situation between each party.
 
 ## Acknowledgement
 This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is lead by project manager Yuanxin Ye (u5669371@anu.edu.au) and consist sixe other team members, Yunyuan Yu (u6092441@anu.edu.au), Yuanxin Ye (u5669371@anu.edu.au), Weiwei Liang (u6642464@anu.edu.au), Yufei Qian (u5981067@anu.edu.au), Peilin Song (u6225953@anu.edu.au), Dawei Zhang (u6302602@anu.edu.au), and Daoyu Li (u5912264@anu.edu.au).
