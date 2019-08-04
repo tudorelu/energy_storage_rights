@@ -156,7 +156,6 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 [Test Case]( https://drive.google.com/drive/folders/1mXzHyvk3NEHUHc-ea4OYsFEOOUlcOTlA  )<br/>
 [Work Log]( https://drive.google.com/drive/folders/1MQU0xjfCFbGTKCB5QzTTYm8QJPny00xG  )<br/>
 [Trello page]( https://trello.com/b/A7bMM3s1/energy-storage-rights  )<br/>
-[Semester 1 Document]( https://drive.google.com/drive/folders/1BD-qphvc1mOOeRAqcmFgobbKJgBE7TIh  )<br/>
 
 ## Other Readme resources
 ### Master Branch
