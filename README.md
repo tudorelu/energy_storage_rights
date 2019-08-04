@@ -133,17 +133,16 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Role|Principle|Vice|Assistant|
 |Project Manager|Yuanxin Ye|
 |Spokesman|Yuanxin Ye | Yufei Qian|Yunyuan Yu|
-|Recorder|Weiwei Liang |Yufei Qian|
+|Recorder|Weiwei Liang |Yufei Qian|Yuanxin Ye|
 |Back-end: Data Source Researcher|Yufei Qian|Daoyu Li|Yunyuan Yu, Weiwei Liang|
 |Back-end: Algorithm Researcher|Weiwei Liang|Yufei Qian|Yunyuan Yu
 |Back-end: Machine Learning Researcher and Developer|Daoyu Li|Yunyuan Yu|Yufei Qian, Yuanxin Ye|
-|Back-end: Data Clean and Manage developer|Yunyuan Yu|Dawei Zhang|
+|Back-end: Data Cleaning and Management developer|Dawei Zhang|Yunyuan Yu|
 |Front-end: Web Developer|Peilin Song |Dawei Zhang|Yunyuan Yu, Daoyu Li|
 |Front-end: Algorithm Tester and Developer|Yunyuan Yu|Peilin Song|Yufei Qian, Weiwei Liang|
 |Front-end: Web Host server researcher|Dawei Zhang|Peilin Song|Yunyuan Yu, Daoyu Li|
 |Front-end: Web Host implementation Developer|Daiwei Zhang|PeilinSong|Yunyuan Yu, Daoyu Li|
-|Font-end Back-end Integrator|Yunyuan Yu|
-
+|Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
 
 ## Link to our other resources
 Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs <br/>
