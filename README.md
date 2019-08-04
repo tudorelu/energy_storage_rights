@@ -128,15 +128,22 @@ Many potential users are interested in renewable energy, our application can hel
 This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and carried out under computing project courses including COMP3500, COMP4500, and COMP8715 from The Australian National University. This project team is lead by project manager Yuanxin Ye (u5669371@anu.edu.au) and consist sixe other team members, Yunyuan Yu (u6092441@anu.edu.au), Yuanxin Ye (u5669371@anu.edu.au), Weiwei Liang (u6642464@anu.edu.au), Yufei Qian (u5981067@anu.edu.au), Peilin Song (u6225953@anu.edu.au), Dawei Zhang (u6302602@anu.edu.au), and Daoyu Li (u5912264@anu.edu.au).
 
 ## Work allocation
-|Team member|	Role|	Job description|
-|--------|------|--------|
-|Yuanxin Ye |	Project manager, Front-end developer, quality assurance engineer|	Responsible for web-development, agenda editing, and audit report writing. Doing research on energy source data and ReactJs.|
-|Yunyuan Yu|	Back-end developer,software developer|	Responsible for audit report writing, back-end development and doing research on energy source data. Calculating the best location for getting renewable energy.|
-|Weiwei Liang|	Front-end developer,software developer|	Responsible for audit report writing, web-development and agenda writing.|
-|Daoyu Li	|Back-end developer,database administrator	|Responsible for doing the data research for renewable energy location. Doing the research of map API. Using the energy database, calculating the best location.|
-|Dawei Zhang	|Front-end developer,web developer	|Responsible for web-development. Doing the research on ReactJs.|
-|Yufei Qian	|Back-end developer, database developer	|Responsible for doing the data research for renewable energy location. Doing the research of map API. Using the energy database, calculating the best location.|
-|Peilin Song	|Front-end developer,web developer	|Responsible for web-development. Doing the research on ReactJs.|
+|Role|Principle|Vice|Assistant|
+|--------|------|--------|--------|
+|Role|Principle|Vice|Assistant|
+|Project Manager|Yuanxin Ye|
+|Spokesman|Yuanxin Ye | Yufei Qian|Yunyuan Yu|
+|Recorder|Weiwei Liang |Yufei Qian|
+|Back-end: Data Source Researcher|Yufei Qian|Daoyu Li|Yunyuan Yu, Weiwei Liang|
+|Back-end: Algorithm Researcher|Weiwei Liang|Yufei Qian|Yunyuan Yu
+|Back-end: Machine Learning Researcher and Developer|Daoyu Li|Yunyuan Yu|Yufei Qian, Yuanxin Ye|
+|Back-end: Data Clean and Manage developer|Yunyuan Yu|Dawei Zhang|
+|Front-end: Web Developer|Peilin Song |Dawei Zhang|Yunyuan Yu, Daoyu Li|
+|Front-end: Algorithm Tester and Developer|Yunyuan Yu|Peilin Song|Yufei Qian, Weiwei Liang|
+|Front-end: Web Host server researcher|Dawei Zhang|Peilin Song|Yunyuan Yu, Daoyu Li|
+|Front-end: Web Host implementation Developer|Daiwei Zhang|PeilinSong|Yunyuan Yu, Daoyu Li|
+|Font-end Back-end Integrator|Yunyuan Yu|
+
 
 ## Link to our other resources
 Google doc: https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs <br/>
