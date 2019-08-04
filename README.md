@@ -36,7 +36,8 @@ Our client, the team of Energy Storage Rights, wishes to develop a website appli
 * **Energy output can be calculated by single point or polygon area**
 * **Allow variation when calculating potential energy output using different attribute (energy price, hardware specification, etc.)**
 * **Predict potential energy output using data that not involve in the equation (e.g. tempurature) instead of correlated data (e.g. solar irradiation)**
-
+## System Architecture
+# ![image](https://github.com/tudorelu/energy_storage_rights/blob/master/Documents/System%20Architecture.png)
 ## Deliverables
 ### First deliverable (Semester 1 Week 6):
 * **A basic website with maps ready to use**
