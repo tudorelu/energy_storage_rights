@@ -10,7 +10,7 @@ Table of Contents
   * [The potential of the project](#The-potential-of-the_project)
   * [Acknowledgement](#Acknowledgement)
   * [Work allocation](#work-allocation)
-  * [Link to our other resources](#Link-to-our-other-resources)
+  * [Link to Documentation](#Link-to-Documentation)
   * [Other Readme resources](#Other-Readme-resources)
    
 
@@ -143,7 +143,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Front-end: Web Host implementation Developer|Daiwei Zhang|PeilinSong|Yunyuan Yu, Daoyu Li|
 |Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
 
-## Link to our other resources
+## Link to Documentation
 [Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
 [Meeting Agendas]( https://drive.google.com/drive/folders/1ruHMGQEwZx8xxoOjOGPwa9xU5NgL7rAN  )<br/>
 [Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
