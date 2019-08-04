@@ -33,7 +33,7 @@ Our client, the team of Energy Storage Rights, wishes to develop a website appli
 
 * **Visualize the energy distribution gloabal wide in the website**
 * **Allow user to see the potential energy output from implementing renewable technologies in the desire location**
-* **Energy output can be calculated by point or area**
+* **Energy output can be calculated by single point or polygon area**
 * **Allow variation when calculating potential energy output using different attribute (energy price, hardware specification, etc.)**
 * **Predict potential energy output using data that not involve in the equation (e.g. tempurature) instead of correlated data (e.g. solar irradiation)**
 
