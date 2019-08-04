@@ -3,7 +3,7 @@ Table of Contents
   * [Status](#Status)
   * [Introduction](#Introduction)
   * [Vision](#Vision)
-  * [Objectives](#Objectives)
+  * [Main features](#Main-features)
   * [Deliverables](#Deliverables)
   * [Desired Features](#Desired-Features)
   * [Milestones](#Milestones)
@@ -29,8 +29,12 @@ Through our development on this project, we use Google drive for documentation p
 ## Vision
 Our client, the team of Energy Storage Rights, wishes to develop a website application that can find the best location to get the richest energy source in order to maximize the profit margin. The target users include small enterprises, organizations, individuals. In summary, an applicable and portable website application which can evaluate and utilize the renewable energy for potential users is our client’s desired outcome at the end of the project.  
 
-## Objectives
-Refer to [Objectives.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Objectives.xlsx)
+## Main features
+
+* **Visualize the energy distribution in the website**
+* **Allow user to see the potential energy output from implementing renewable technologies in the desire location**
+* **Allow variation when calculating potential energy output using different attribute (energy price, hardware specification)**
+* **Predict potential energy output even there is no required data**
 
 ## Deliverables
 ### First deliverable (Semester 1 Week 6):
