@@ -161,7 +161,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 ## Other Readme resources
 ### Master Branch
 [Master](https://github.com/tudorelu/energy_storage_rights)<br />
-[Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Algorithm%20Documents)<br />
+[Algorithm Document](https://github.com/tudorelu/energy_storage_rights/tree/master/Documents/Algorithm%20Documents)<br />
 [Code](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)<br />
 [Code/Testing](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/Testing%20on%20sample%20algorithm)<br />
 [Code/data](https://github.com/tudorelu/energy_storage_rights/tree/master/Code/data)<br />
