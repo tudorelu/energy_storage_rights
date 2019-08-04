@@ -33,7 +33,7 @@ Our client, the team of Energy Storage Rights, wishes to develop a website appli
 Refer to [Objectives.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Objectives.xlsx)
 
 ## Deliverables
-### First deliverable:
+### First deliverable (Semester 1 Week 6):
 * **A basic website with maps ready to use**
 * **A basic map with some basic functions including search, zoom in & out.**
 * **A user interface which should be able to display renewable energy distribution in map.**
@@ -43,7 +43,7 @@ Relevant data of World-wide Wind speed, Solar exposure, Water coverage
 The data we search should be modified to the same format which can be used and visualized by our map. 
 * **Being able to visualize layer data**<br />
 A kind of renewable energy will be shown on our map, including solar, wind and hydro energy, which will be displayed on different layers, at least for sample size scale. 
-### Second deliverable (MVP)
+### Second deliverable (MVP, Semester 1 Week 10)
 * **Improved functionality of the map engine**<br />
 Able to change the basemap base on user preference. Better visualize the data (use transparency and different ways of visualization such as discrete or category)
 * **A high-efficient map engine**<br />
@@ -62,35 +62,56 @@ This include calculate annual power output, annual profit, net profit, and retur
 As above.
 * **User-friendly interface to display essential information**<br />
 Refine the design on side bar to be more professional.
-### Third deliverable
-* **Find the best combination of different technologies by calculation**<br />
-We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
-* **Use machine learning technologies to predict point of interest where no data available**<br />
-We will find the combinations of three kinds renewable energy including solar, wind and hydro energy.
-* **A robust algorithm is developed**<br />
-The algorithm should be able to optimise the choices of renewable energy and its corresponding location. 
-* **Calculate the return of investment for all combinations of technology**
-* **A professional & fancy website**
+### Third deliverable (Semester 2)
+#### Stage 1 (By Week 6): 
+##### Front-end: 
+* **User interface design research and improvement**<br />
+-A more user-friendly UI plan is refined.<br />
+-Self-review previous UI structure<br />
+-Develop and improve the information panel.<br />
+* **Onboarding information page**<br />
+-Use short, clear, subtle images and video, and plenty of personality in its user onboarding flow to welcome new users and introduce important features.<br />
+-Design a step by step User Manual/Guide and FAQ to make clear instruction for users. All core functions and features are included.<br />
+* **Technical Review**<br />
+-Review code readability, cohesion and coupling<br />
+-Review program structure and architecture<br />
+-Review compatibility<br />
+* **Web server testing, comparison, and selection**<br />
+* **Research & find an appropriate web server for backend usage**<br />
+##### Back-end: 
+* **Prepare a basic algorithm report on renewable energy calculation**<br />
+1.	Wind  2.	Solar  3.	Pump Hydro
+* **Find a storage method for Map layer data that has better compatibility**<br />
+Given that our local data is big and is not compatible with many devices. Therefore, a faster way should be considered and implemented to allow the data can be read and process from every computer. <br />
+The solution should be: <br />
+-Allow the data to be read by every computer <br />
+-Allow the data to be preprocess in a more efficient way. <br />
+* **Research on alternative algorithm for energy calculation**<br />
+Explore on other algorithm that can be used for calculation to determine the pros and cons of each algorithm.
+* **Research and implement on algorithm of implementation cost of renewable energy facility**<br />
+* **Integrate every algorithm with website**<br />
+
+#### Stage 2 (By Week 10):
+##### Front-end: 
+* **Complete user acceptance testing. UI is refined based on user feedback**<br />
+* **Web host is implemented and integrated.**<br />
+Web hosting is a server where websites stored. Some features to consider: Server performance, price, features, customer supports, and server physical locations. Our website will need to be live by this stage.
+* **Test case for web host implementation is created and tested. The test case should cover the program stability, usability, and efficiency.**<br />
+* **Final code review**<br />
+-Review code readability, cohesion and coupling<br />
+-Review program structure and architecture<br />
+-Review compatibility<br />
+* **Handover documentation.**<br />
+##### Front-end: 
+* **ML model to predict energy output where incomplete data is presented**<br />
+Select and train ML model where it can predict the potential energy output where there is little, or no data given. Select and compare to choose a suitable model where it can predict with highest accuracy. <br />
+-	For example, when predicting solar energy output in a given point, a potential output is given where the solar irradiation data is presented by default. When there is no available data for solar irradiation, the model should predict the solar irradiation value base on the data such as temperature where it is widely available.<br />
+-	The model performance should be measure by accuracy, the accuracy measurement method will be decided later when we use different models. Some possible measure method includes Mean Squared Error, F1 score, and absolute difference. 
 
 
 ## Desired Features
-###  Two primary functions
-For our web application, we are planned to have two function to allow the users to identify the suitable area for renewable energy technologies development. 
-For our first function, we need to calculate the return of investment by develop various kind of renewable technologies for the area selected by users. Then, we could use a similar algorithm to identify the top N locations that is suitable for development in a relative large area. To rank different locations, we will continue to use the return of investment as the parameter.
-
-### Smart choices by system
-Nearest energy grid<br />
-Suitable locations for different technologies<br />
-Best combination<br />
-Analyze local developers<br />
-### A user-friendly interface
-Area cover<br />
-Power output by month<br />
-Total power output<br />
-Total implementation cost<br />
-Annual value<br />
-Return of investment<br />
-Shown data usage<br />
+Our final product is desired to have some other functions.The application should be able to identify the top N locations that is suitable for development in a relative large area. To rank different locations, we will continue to use the return of investment as the parameter.<br />
+On the other hand, the application should be able to select a combination of different technologies where it yield most energy output.
 
 ## Milestones
 Refer to [Gantt_project_planner.xlsx](https://github.com/tudorelu/energy_storage_rights/blob/master/Gantt_project_planner.xlsx) above
