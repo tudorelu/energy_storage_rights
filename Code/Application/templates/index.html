@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Energy</title>
+
+    <!-- Bootstrap Core CSS -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- my own css-->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link href='https://api.mapbox.com/mapbox-assembly/mbx/v0.18.0/assembly.min.css' rel='stylesheet'>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://esrau.maps.arcgis.com/apps/Embed/index.html?webmap=b90567202ab649729c1b60e900f33048&extent=18.4297,-65.9323,180,18.6791&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></script> -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+    <script src="https://js.arcgis.com/4.11/"></script>
+
+
+    
+
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+        height:100%;
+        width: 100%;
+      }
+
+
+      html, #viewDiv {
+        padding: 0;
+        margin-left: 5%;
+        height:100%;
+        width: 90%;
+      }  
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+<!-- Navigation menu start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size:18px; width: 112%; left: -6%;">
+    <a class="navbar-brand" href="#">ESRights</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"  >
+            <li class="nav-item active" style="margin-left:15px">
+                <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" style="margin-left:15px">
+                <a class="nav-link" href="{{ url_for('map') }}">Map</a>
+            </li>
+            <li class="nav-item dropdown" style="margin-left:15px">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    About
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="about.html">Goal</a>
+                    <a class="dropdown-item" href="help.html">Help</a>
+                    <a class="dropdown-item" href="contact.html">Contact</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Feedback</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<!-- Navigation menu end -->
+
+<!-- introduction -->
+
+<div style="height: 100px; background-color: royalblue; width: 112%; margin-left: -6%;">
+    <p style="font-weight: 700;font-size: 40px; color: white; text-align: center; padding-top: 30px;">Energy Storage Rights</p>
+</div>
+<br>
+<hr>
+<br>
+
+<div style="height: 150%; background-color: white; width: 70%; margin-left: 15%; ">
+    <p style="font-weight: 600;font-size: 25px; color:black;text-align: center;">Abstract</p>
+
+    <p style="font-weight: 400;font-size: 15px;color:black; line-height:45px; text-align: center"> This is an ongoing project for Energy Storage Rights.
+        It aims to create a platform that allows users to see the return of investment on
+        potential sites for renewable energy technologies. The target users include small enterprises,
+        organizations, individuals. The implementation includes Data Mining, Machine Learning,
+        and Web development. In summary, an applicable and portable website app which can evaluate
+        and utilize the renewable energy for potential users is our client’s desired outcome
+        at the end of the project. </p>
+    <p style="font-weight: 600;font-size: 25px; color:black;text-align: center; padding-top:20px"> Background </p>
+
+    <p style="font-weight: 400;font-size: 15px;color:black;line-height:45px;text-align: center ">There is an ongoing trend
+        of renewable energy technologies to be further developed in Australia.
+        However, a platform which allows interaction between the technology developers and the potential user
+        is absent. In 2017, coal still contributes 62% to Australian electricity generation.
+        Thus, the potential of our application is brimming with opportunity.</p>
+    <p style="font-weight: 600;font-size: 25px; color:black;text-align: center; padding-top:20px">   Brief Introduction</p>
+
+    <p style="font-weight: 400;font-size: 15px;color:black;line-height:45px;text-align: center ">   Deployment of renewable energy
+        technologies in a different location often comes with advantage and disadvantage.
+        The energy storage rights is a digital platform that will map, evaluate, promote and help investments
+        in the development rights for energy storage pilot projects such as pumped hydro energy storage,
+        floating solar pilots on lake or sea. Alongside with the platform is the energy storage rights app.
+        We strive to build up an application which used to evaluate and optimize the performance and potential of
+        location viable for development of different renewable-energy technologies, this outcome will then be visualized
+        to the target user.
+
+    </p>
+</div>
+
+<!-- function tool setup -->
+
+
+
+
+
+</body>
+
+</html>
