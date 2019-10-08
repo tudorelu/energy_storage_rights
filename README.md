@@ -20,7 +20,7 @@ Table of Contents
 ## Status
 We are currently undergoing the development of our second deliverable. We have developed a website that can visualize Solar irradiation, Water occurrence, Windpower density, Possible site for Pumped Hydro, and the distance to energy grid node in Australia. Also, our website has the abilities to do data analysis by identifying the possible energy output at the point of interest (for wind and solar for now), determined the possible annual power output, and calculate the return of investment (ROI). However, there is still plenty of room for us to improve on our calculation as we realized there are many factors that can affect the outcome. Moreover, the user can draw the specific shape in the map using our sketch widget, this can be used for selecting the user-desired area for evaluation. We use our Web branch to explore possibilities during development while the master branch consists of all the final works that are aligned with our deliverable. The next phase of the development will be mainly focused on developing the algorithm for calculating ROI and further develop on the area selection function. The instruction on how to run our website can be found [here](https://github.com/tudorelu/energy_storage_rights/tree/master/Code)
 
-In the past few weeks, we were working on a few things. First, our front-end team tried to improve on UI for the website through actively communicate with our client. Second, our front-end team also explored on the possible web cloud service platform that allow us to establish our [website](https://energy-storage-rights.herokuapp.com/), we have made decision to choose Heroku and will futhur develop on this in the next stage. Third, our back-end team research furthur on the algorithm that could be use to calculate maintainance cost, energy calculation, and other calculation. Fourth, back-end team also found an alternate way that have better capability in terms of data storage, data extraction from web map server, and data compression. 
+In the past few weeks, we were working on a few things. First, our front-end team tried to improve on UI for the website through actively communicate with our client. Second, our front-end team also explored on the possible web cloud service platform that allow us to establish our [website](https://energy-stroage-rights.herokuapp.com/), we have made decision to choose Heroku and will futhur develop on this in the next stage. Third, our back-end team research furthur on the algorithm that could be use to calculate maintainance cost, energy calculation, and other calculation. Fourth, back-end team also found an alternate way that have better capability in terms of data storage, data extraction from web map server, and data compression. 
 
 ## Introduction
 Deployment of renewable energy technologies in a different location often comes with advantage and disadvantage. The energy storage rights is a digital platform that will map, evaluate, promote and help investments in the development rights for energy storage pilot projects such as pumped hydro energy storage, floating solar pilots on lake or sea. Alongside with the platform is energy storage rights application.
@@ -162,7 +162,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 [Trello page]( https://trello.com/b/A7bMM3s1/energy-storage-rights  )<br/>
 
 ## Link to Webserver
-[Website]( https://energy-storage-rights.herokuapp.com/ )<br/>
+[Website]( https://energy-stroage-rights.herokuapp.com/)<br/>
 
 ## Other Readme resources
 ### Master Branch
