@@ -148,6 +148,7 @@ This project is acquired from Tudor Barbulescu (tudor.barbulescu@anu.edu.au) and
 |Font-end Back-end Integrator|Yunyuan Yu|Yuanxin Ye|
 
 ## Link to Documentation
+[Website](http://energy-storage-rights.herokuapp.com/) <br/>
 [Google doc](https://drive.google.com/open?id=1OcePBJw_gMNDE8a1w4bpGXbVZ-dVddzs) <br/>
 [Meeting Agendas]( https://drive.google.com/drive/folders/1ruHMGQEwZx8xxoOjOGPwa9xU5NgL7rAN  )<br/>
 [Algorithm Document]( https://drive.google.com/drive/folders/1IF7tnOA0B2_ef84wrJ-9GveKArFg9Ek4  )<br/>
